@@ -61,51 +61,18 @@ const Purpose = () => {
           {/* Content */}
           <div className="order-1 md:order-2 space-y-6">
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
-              Nuestro <span className="text-primary">{currentSection.title}</span>
+              Nuestro <span className="text-primary">Propósito</span>
             </h2>
-            {currentSection.description.map((paragraph, index) => (
-              <p key={index} className="text-lg text-muted-foreground leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Nuestro Barrio, Nuestras Historias es un proyecto comunitario dedicado a rescatar, preservar y compartir las historias que hacen única a nuestra comunidad.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Creemos que cada vecino tiene una historia valiosa que contar, y que al compartirlas, fortalecemos los lazos que nos unen y construimos un sentido más profundo de pertenencia.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              A través de testimonios, fotografías, documentos y recuerdos, estamos tejiendo la memoria colectiva de nuestro barrio para las generaciones presentes y futuras.
+            </p>
           </div>
-        </div>
-
-        {/* Navigation */}
-        <div className="mt-16 flex items-center justify-center gap-8">
-          <Button
-            type="button"
-            onClick={goToPrevious}
-            variant="ghost"
-            size="icon"
-            className="h-12 w-12 rounded-full border border-border transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </Button>
-
-          <div className="flex gap-3">
-            {PURPOSE_SECTIONS.map((section, sectionIndex) => (
-              <button
-                key={section.id}
-                type="button"
-                onClick={() => setCurrentIndex(sectionIndex)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  sectionIndex === currentIndex ? 'w-8 bg-primary' : 'w-2 bg-border hover:bg-primary/60'
-                }`}
-                aria-label={`Ver ${section.title}`}
-              />
-            ))}
-          </div>
-
-          <Button
-            type="button"
-            onClick={goToNext}
-            variant="ghost"
-            size="icon"
-            className="h-12 w-12 rounded-full border border-border transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </Button>
         </div>
       </div>
     </section>
