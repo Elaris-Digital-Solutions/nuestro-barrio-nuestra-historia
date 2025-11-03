@@ -40,7 +40,7 @@ const Hero = () => {
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } }}
         >
-          Redescubriendo y compartiendo la identidad de nuestra comunidad
+          Queremos reconstruir la memoria viva de La Oroya a través de las voces, los ojos y las experiencias de sus propios habitantes.
         </motion.p>
         <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"

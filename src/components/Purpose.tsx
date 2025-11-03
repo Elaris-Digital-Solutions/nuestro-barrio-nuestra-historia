@@ -7,30 +7,27 @@ import { fadeIn, fadeInUp, staggerChildren, viewportSettings } from "@/lib/motio
 
 const PURPOSE_SECTIONS = [
   {
-    id: "proposito",
-    title: "Propósito",
+    id: "quienes-somos-1",
+    title: "¿Quiénes",
+    highlight: "somos?",
     description: [
-  "Nuestro Barrio, Nuestra Historia es un proyecto comunitario dedicado a rescatar, preservar y compartir las historias que hacen única a nuestra comunidad.",
-      "Creemos que cada vecino tiene una historia valiosa que contar, y que al compartirlas, fortalecemos los lazos que nos unen y construimos un sentido más profundo de pertenencia.",
-      "A través de testimonios, fotografías, documentos y recuerdos, estamos tejiendo la memoria colectiva de nuestro barrio para las generaciones presentes y futuras."
+      "“Nuestro barrio, nuestras historias” es un proyecto interdisciplinario que combina psicología comunitaria, comunicación para el desarrollo y ciencia ambiental, con el propósito de documentar, reflexionar y compartir las memorias colectivas de La Oroya desde la mirada de sus propios habitantes."
     ]
   },
   {
-    id: "mision",
-    title: "Misión",
+    id: "quienes-somos-2",
+    title: "¿Quiénes",
+    highlight: "somos?",
     description: [
-      "Documentar, reflexionar y compartir memorias colectivas mediante metodologías participativas —fotovoz, teatro comunitario, cartografía social y mapas del cuerpo— articulando psicología comunitaria, comunicación para el desarrollo y ciencia ambiental.",
-      "Trabajamos directamente con los habitantes de La Oroya para co-crear espacios de diálogo y reflexión que permitan la construcción colectiva de conocimiento.",
-      "Promovemos la participación activa de la comunidad en la documentación y preservación de su propia historia y memoria."
+      "Este proyecto forma parte de una tesis de maestría en Psicología Comunitaria de la Pontificia Universidad Católica del Perú (PUCP), en alianza con el Centro de Investigación para la Rehabilitación Ambiental y Minería Responsable (CICLOMIN), un programa de la Universidad Peruana Cayetano Heredia (UPCH)."
     ]
   },
   {
-    id: "vision",
-    title: "Visión",
+    id: "quienes-somos-3",
+    title: "¿Quiénes",
+    highlight: "somos?",
     description: [
-      "Una comunidad que reconoce y transmite su historia viva de forma intergeneracional, capaz de incidir en decisiones públicas y fortalecer la escucha institucional a través del arte, la evidencia y la colaboración.",
-      "Visionamos un futuro donde las voces de La Oroya sean escuchadas y valoradas en los espacios de toma de decisiones que afectan su territorio.",
-      "Aspiramos a ser un referente en metodologías participativas para la reconstrucción de memoria y el fortalecimiento del tejido social comunitario."
+      "Buscamos escuchar y visibilizar las voces locales, especialmente de niños, niñas y adolescentes, a través de metodologías participativas como la fotovoz, el teatro comunitario, la cartografía social y los mapas del cuerpo.\n\nCreemos que la memoria no es una suma de recuerdos individuales, sino el producto de una reflexión colectiva e intergeneracional donde el arte y el diálogo se convierten en herramientas para desarrollar la historia viva de La Oroya."
     ]
   }
 ];
@@ -74,12 +71,12 @@ const Purpose = () => {
           {/* Content */}
           <motion.div className="order-1 md:order-2 space-y-6" variants={staggerChildren(0.12)}>
             <motion.h2 className="text-4xl sm:text-5xl font-bold text-foreground" variants={fadeInUp(0.15)}>
-              Nuestro <span className="text-primary">{currentSection.title}</span>
+              {currentSection.title} <span className="text-primary">{currentSection.highlight}</span>
             </motion.h2>
             {currentSection.description.map((paragraph, index) => (
               <motion.p
                 key={index}
-                className="text-lg text-muted-foreground leading-relaxed"
+                className="text-lg text-muted-foreground leading-relaxed whitespace-pre-line"
                 variants={fadeInUp(0.2 + index * 0.1)}
               >
                 {paragraph}
