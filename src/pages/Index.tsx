@@ -1,11 +1,11 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Purpose from "@/components/Purpose";
-import Pillars from "@/components/Pillars";
+import QuienesSomosSection from "@/components/QuienesSomosSection";
+import ConoceElProyecto from "@/components/ConoceElProyecto";
 import Stories from "@/components/Stories";
-import Exposicion from "@/components/Exposicion";
-import Collaborators from "@/components/Collaborators";
-import Newsletter from "@/components/Newsletter";
+import ExposicionFotografica from "@/components/ExposicionFotografica";
+import AliadosQueSuman from "@/components/AliadosQueSuman";
+import NuestroEquipo from "@/components/NuestroEquipo";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/lib/motion";
@@ -18,12 +18,12 @@ const Index = () => {
       <Header />
       <motion.main variants={fadeIn()}>
         <Hero />
-        <Purpose />
-        <Pillars />
-  <Stories />
-  <Exposicion />
-        <Collaborators />
-        <Newsletter />
+        <QuienesSomosSection />
+        <ConoceElProyecto />
+        <Stories />
+        <ExposicionFotografica />
+        <AliadosQueSuman />
+        <NuestroEquipo />
       </motion.main>
       <Footer />
     </motion.div>

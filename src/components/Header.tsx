@@ -9,10 +9,12 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Inicio", href: "#inicio" },
-    { name: "El Proyecto", href: "#proyecto" },
+    { name: "Nosotros", href: "#quienes-somos" },
+    { name: "Proyecto", href: "#conoce-el-proyecto" },
     { name: "Historias", href: "#historias" },
-    { name: "Participa", href: "#participa" },
+    { name: "Fotografías", href: "#exposicion" },
+    { name: "Aliados", href: "#aliados" },
+    { name: "Equipo", href: "#equipo" },
   ];
 
   const navItemMotion: Variants = {
