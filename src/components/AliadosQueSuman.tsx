@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { fadeIn, fadeInUp, scaleIn, staggerChildren, viewportSettings } from "@/lib/motion";
 
 const ALLIES = [
-  { name: "AMSAC (Activos Mineros S.A.C.)", logo: "🏭" },
+  { name: "Activos Mineros S.A.C. (AMSAC)", logo: "🏭" },
   { name: "Municipalidad Distrital de Santa Rosa de Sacco", logo: "🌹" },
   { name: "Municipalidad Provincial de Yauli – La Oroya", logo: "⛰️" },
   { name: "Iglesia evangélica de Santa Rosa de Sacco", logo: "⛪" },
@@ -22,7 +22,7 @@ const AliadosQueSuman = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center mb-16" variants={staggerChildren(0.15)}>
           <motion.h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4" variants={fadeInUp(0.1)}>
-            Aliados que <span className="text-primary">Suman</span>
+            Actores <span className="text-primary">Comunitarios</span>
           </motion.h2>
           <motion.p className="text-lg text-muted-foreground max-w-2xl mx-auto" variants={fadeInUp(0.2)}>
             Instituciones aliadas que hacen posible esta iniciativa y acompañan el proceso comunitario en La Oroya.
