@@ -7,7 +7,7 @@ const QuienesSomosSection = () => {
   return (
     <motion.section
       id="quienes-somos"
-      className="py-20 bg-muted/30"
+  className="py-20 bg-primary/5"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}

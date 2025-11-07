@@ -144,44 +144,7 @@ const Stories = () => {
       </motion.header>
 
       {/* Search and Filter Section */}
-      <motion.div 
-        className="py-12 px-4 sm:px-6 lg:px-8 border-b border-border"
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportSettings}
-        variants={fadeIn()}
-      >
-        <div className="container mx-auto space-y-8">
-          {/* Search Bar */}
-          <motion.div className="max-w-xl mx-auto" variants={fadeInUp(0.1)}>
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Buscar historias..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 h-12 text-base"
-              />
-            </div>
-          </motion.div>
-
-          {/* Category Filter */}
-          <motion.div className="flex flex-wrap justify-center gap-3" variants={staggerChildren(0.1, 0.2)}>
-            {categories.map((category) => (
-              <motion.div key={category} variants={fadeInUp()}>
-                <Button
-                  variant={activeCategory === category ? "default" : "outline"}
-                  onClick={() => setActiveCategory(category)}
-                  className="transition-all duration-300"
-                >
-                  {category}
-                </Button>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.div>
+      {/* Search and Filter Section removed as requested */}
 
       {/* Stories Grid */}
       <motion.main 

@@ -4,24 +4,44 @@ import { Carousel } from "@/components/ui/carousel";
 
 const slides = [
   {
-    title: "Miradas desde el puente",
-    button: "Ver historia",
-    src: "https://images.unsplash.com/photo-1445510861639-5651173bc5d5?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "Oroya I",
+    src: "/assets/oroya%201.jpeg.jpg",
+    description: "A veces el cielo es gris por el humo, pero igual salimos a jugar. Quisiera que el aire sea más limpio para que no nos duelan los pulmones después de correr.",
   },
   {
-    title: "Voces de la plaza",
-    button: "Ver historia",
-    src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "Oroya II",
+    src: "/assets/oroya%202.jpeg.jpg",
+    description: "Este es el camino que tomo todos los días. Me gusta porque puedo ver las montañas, pero también siento que el polvo se pega en la ropa y en la garganta.",
   },
   {
-    title: "Memorias del río",
-    button: "Ver historia",
-    src: "https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "Oroya III",
+    src: "/assets/oroya%203.jpeg.jpg",
+    description: "La quebrada antes era más clara, eso dicen mis papás. Yo no la conocí así. Me gustaría que vuelva a verse el fondo del agua.",
   },
   {
-    title: "Retratos del barrio",
-    button: "Ver historia",
-    src: "https://images.unsplash.com/photo-1499891334380-5cf80f1ebf2c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3",
+    title: "Oroya IV",
+    src: "/assets/oroya%204.jpg",
+    description: "Aquí nos reunimos para conversar. Aunque está cerca de la fábrica, es nuestro lugar. Si lo arreglaran y sembraran árboles, sería más bonito para todos.",
+  },
+  {
+    title: "Oroya V",
+    src: "/assets/oroya%205.jpg",
+    description: "La casa de mi abuela siempre está limpia, pero igual entra el polvo. Ella dice que es por el viento que viene de la empresa. Quisiera que ya no tenga que barrer tantas veces.",
+  },
+  {
+    title: "Oroya VI",
+    src: "/assets/oroya%206.png",
+    description: "En este árbol jugábamos cuando éramos más pequeños. Ahora sus hojas se caen más rápido. Ojalá lo cuidaran y crecieran más árboles como él.",
+  },
+  {
+    title: "Oroya VII",
+    src: "/assets/oroya%207.jpg",
+    description: "Me gusta esta vista porque me recuerda que la ciudad no es solo contaminación. También tenemos montañas, colores y gente que quiere cambiar las cosas.",
+  },
+  {
+    title: "Oroya VIII",
+    src: "/assets/oroya%208.jpeg",
+    description: "Este poste está pintado por nosotros. Fue un trabajo del colegio. Para mí es un símbolo de que sí podemos mejorar nuestro barrio si todos ayudamos.",
   },
 ];
 
@@ -29,7 +49,7 @@ const ExposicionFotografica = () => {
   return (
     <motion.section
       id="exposicion"
-      className="py-20 bg-muted/20"
+  className="py-20 bg-primary/5"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
