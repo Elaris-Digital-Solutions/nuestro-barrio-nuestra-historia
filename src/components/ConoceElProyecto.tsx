@@ -39,7 +39,7 @@ const ConoceElProyecto = () => {
   return (
     <motion.section
       id="conoce-el-proyecto"
-      className="py-20 bg-[#E0E0DC]"
+      className="py-20 bg-[#FBF0ED]"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}

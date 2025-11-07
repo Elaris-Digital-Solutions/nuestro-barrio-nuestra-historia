@@ -13,7 +13,7 @@ const AliadosQueSuman = () => {
   return (
     <motion.section
       id="aliados"
-      className="py-20 bg-[#E0E0DC]"
+      className="py-20 bg-[#FBF0ED]"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}

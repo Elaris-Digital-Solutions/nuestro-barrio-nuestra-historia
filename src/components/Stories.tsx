@@ -32,7 +32,7 @@ const Stories = () => {
   return (
     <motion.section
       id="historias"
-      className="py-12 sm:py-16 lg:py-20 bg-[#E0E0DC]"
+      className="py-12 sm:py-16 lg:py-20 bg-[#FBF0ED]"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
