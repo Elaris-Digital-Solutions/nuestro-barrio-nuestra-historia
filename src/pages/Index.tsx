@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import QuienesSomosSection from "@/components/QuienesSomosSection";
 import ConoceElProyecto from "@/components/ConoceElProyecto";
+import IncidenciaSection from "@/components/IncidenciaSection";
 import Stories from "@/components/Stories";
 import ExposicionFotografica from "@/components/ExposicionFotografica";
 import AliadosQueSuman from "@/components/AliadosQueSuman";
@@ -20,6 +21,7 @@ const Index = () => {
         <Hero />
         <QuienesSomosSection />
         <ConoceElProyecto />
+  <IncidenciaSection />
         <Stories />
         <ExposicionFotografica />
         <AliadosQueSuman />

@@ -23,16 +23,11 @@ const QuienesSomos = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="mb-6 text-lg leading-relaxed">
-              "Nuestro Barrio, Nuestra Historia" es un proyecto interdisciplinario que combina 
-              psicología comunitaria, comunicación para el desarrollo y ciencia ambiental, con el 
-              propósito de documentar, reflexionar y compartir las memorias colectivas de La Oroya 
-              desde la mirada de sus propios habitantes.
+              “Nuestro Barrio, Nuestra Historia” es un proyecto interdisciplinario que desarrolla soluciones metodológicas creativas y comunitarias para aportar a un urban planning sostenible en ciudades afectadas por contaminación ambiental. Creemos que los niños, niñas y adolescentes poseen una mirada única del territorio, por lo que su voz es el eje y motor de nuestros procesos.
+
             </p>
             <p className="mb-6 text-lg leading-relaxed">
-              Este proyecto forma parte de una tesis de maestría en Psicología Comunitaria de la 
-              Pontificia Universidad Católica del Perú (PUCP), en alianza con el Centro de 
-              Investigación para la Rehabilitación Ambiental y Minería Responsable (CICLOMIN), 
-              un programa de la Universidad Peruana Cayetano Heredia (UPCH).
+              Trabajamos desde un enfoque de memoria, ciudadanía ambiental y participación intergeneracional. Aunque los NNA son protagonistas, la presencia de familias y personas adultas de la comunidad complementa y fortalece la construcción colectiva de significados, ampliando la comprensión del entorno urbano.
             </p>
           </motion.div>
           
@@ -43,15 +38,10 @@ const QuienesSomos = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="mb-6 text-lg leading-relaxed">
-              Buscamos escuchar y visibilizar las voces locales, especialmente de niños, niñas y 
-              adolescentes, a través de metodologías participativas como la fotovoz, el teatro 
-              comunitario, la cartografía social y los mapas del cuerpo.
+              Nuestro propósito es generar espacios donde la comunidad pueda narrar su historia, reconocer sus vínculos con el territorio y proponer caminos para un futuro más habitable. Buscamos que estas memorias dialoguen con instituciones y actores locales, contribuyendo a decisiones que promuevan ciudades más saludables, funcionales y humanas.
+
             </p>
-            <p className="text-lg leading-relaxed">
-              Creemos que la memoria no es una suma de recuerdos individuales, sino el producto 
-              de una reflexión colectiva e intergeneracional donde el arte y el diálogo se 
-              convierten en herramientas para desarrollar la historia viva de La Oroya.
-            </p>
+          
           </motion.div>
         </div>
 

@@ -36,7 +36,7 @@ const methodologies = [
 
 const textAnimation = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as any } }
 };
 
 const containerVariants = {
@@ -51,7 +51,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.5, ease: "easeOut" as any }
   }
 };
 
@@ -108,17 +108,6 @@ const Proyecto = () => {
             </motion.div>
           ))}
         </motion.div>
-        
-        <motion.p 
-          className="mt-12 text-center italic text-lg px-4 max-w-4xl mx-auto"
-          variants={textAnimation}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          Todo el proceso culminará en una exposición pública y artística, con fotografías, 
-          textos y relatos elaborados por las/os participantes.
-        </motion.p>
       </div>
     </section>
   );

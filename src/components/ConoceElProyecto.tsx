@@ -81,15 +81,6 @@ const ConoceElProyecto = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.p
-          className="text-lg text-muted-foreground max-w-3xl mx-auto mt-12 text-center"
-          variants={fadeInUp(0.25)}
-        >
-          Todo el proceso culminará en una exposición pública y artística, con fotografías, textos y relatos elaborados por las/os
-          participantes, acompañada de conversatorios con autoridades locales y especialistas para promover la incidencia política y
-          la escucha institucional.
-        </motion.p>
       </div>
     </motion.section>
   );
