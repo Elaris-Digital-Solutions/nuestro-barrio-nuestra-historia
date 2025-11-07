@@ -25,7 +25,7 @@ const NuestroEquipo = () => {
   return (
     <motion.section
       id="equipo"
-      className="py-20 bg-primary/5"
+      className="py-20 bg-white"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
