@@ -12,12 +12,13 @@ const teamSlides = [
     caption: "Daniela Bussalleu Salcedo",
   },
   {
-    image: maribelPortrait,
-    caption: "Dra. Maribel Goncálves",
-  },
-  {
     image: bramRaulPortrait,
     caption: "Dr. Bram Leo Willems y Dr. Raúl Loayza",
+    
+  },
+  {
+   image: maribelPortrait,
+    caption: "Dra. Maribel Goncálves", 
   },
 ];
 
