@@ -51,9 +51,9 @@ const ConoceElProyecto = () => {
             Conoce el <span className="text-primary">Proyecto</span>
           </motion.h2>
           <motion.p className="text-lg text-muted-foreground max-w-6xl mx-auto leading-loose tracking-wide" variants={fadeInUp(0.2)}>
-            <strong>Nuestro Barrio, Nuestra Historia</strong> es una iniciativa que busca <strong>rescatar, preservar y compartir historias</strong> que hacen únicas a
+            <strong>Nuestro Barrio, Nuestra Historia</strong> es una iniciativa que a través de <strong>metodologías comunitarias</strong> busca <strong>rescatar, preservar y compartir historias</strong> que hacen únicas a
             las comunidades. En esta oportunidad trabajamos junto a la <strong>comunidad de La Oroya</strong> para recuperar la <strong>memoria local</strong> y producir
-            <strong>información valiosa</strong> que contribuirá a futuros <strong>procesos de planificación urbana</strong>.
+            <strong> conocimiento</strong> que contribuirá a futuros <strong>procesos de planificación urbana</strong>.
           </motion.p>
         </motion.div>
 
