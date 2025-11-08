@@ -1,101 +1,72 @@
-import { useState } from "react";
-import { Search, Calendar, Eye } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { Calendar, Eye } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInUp, pageTransition, staggerChildren, viewportSettings } from "@/lib/motion";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-interface Story {
-  id: number;
-  title: string;
-  excerpt: string;
-  image: string;
-  category: string;
-  date: string;
-  readTime: number;
-  views: number;
-}
+import { useStories, estimateReadTime, estimateViews } from "@/hooks/useStories";
 
 const Stories = () => {
   const navigate = useNavigate();
+  const { stories, isLoading, errorMessage, categories } = useStories();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("Todas");
 
-  const stories: Story[] = [
-    {
-      id: 1,
-      title: "El jardín de la comunidad",
-      excerpt: "Una historia sobre cómo un pequeño espacio verde transformó nuestro vecindario, uniendo a las familias en torno al cuidado de la tierra y las plantas.",
-      image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&auto=format",
-      category: "Comunidad",
-      date: "15 de Octubre, 2024",
-      readTime: 5,
-      views: 124
-    },
-    {
-      id: 2,
-      title: "Aprendiendo juntos",
-      excerpt: "Descubre cómo los niños del barrio encontraron la alegría de aprender compartiendo conocimientos y experiencias, creando un círculo de apoyo mutuo.",
-      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop&auto=format",
-      category: "Aprendizaje",
-      date: "12 de Octubre, 2024",
-      readTime: 7,
-      views: 89
-    },
-    {
-      id: 3,
-      title: "Recetas de familia",
-      excerpt: "Las recetas de la abuela no solo son comida, son memoria, tradición y amor. Esta es la historia de cómo la cocina nos conecta con nuestras raíces.",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&auto=format",
-      category: "Familia",
-      date: "8 de Octubre, 2024",
-      readTime: 4,
-      views: 156
-    },
-    {
-      id: 4,
-      title: "Historias bajo el árbol",
-      excerpt: "Cada tarde, bajo la sombra del gran árbol del parque, compartimos cuentos e historias que han pasado de generación en generación.",
-      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&auto=format",
-      category: "Naturaleza",
-      date: "5 de Octubre, 2024",
-      readTime: 6,
-      views: 203
-    },
-    {
-      id: 5,
-      title: "La biblioteca viajera",
-      excerpt: "Un carrito de libros que recorre el barrio, llevando historias a cada rincón y despertando la imaginación de pequeños y grandes.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&auto=format",
-      category: "Aprendizaje",
-      date: "1 de Octubre, 2024",
-      readTime: 8,
-      views: 178
-    },
-    {
-      id: 6,
-      title: "Unidos por un sueño",
-      excerpt: "Cuando la comunidad se une por una causa común, los sueños se hacen realidad. Esta es nuestra historia de perseverancia y esperanza.",
-      image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop&auto=format",
-      category: "Comunidad",
-      date: "28 de Septiembre, 2024",
-      readTime: 10,
-      views: 245
-    },
-  ];
+  useEffect(() => {
+    if (!categories.includes(activeCategory)) {
+      setActiveCategory("Todas");
+    }
+  }, [categories, activeCategory]);
 
-  const categories = ["Todas", "Comunidad", "Familia", "Aprendizaje", "Naturaleza"];
+  const dateFormatter = useMemo(
+    () =>
+      new Intl.DateTimeFormat("es-PE", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
+    []
+  );
 
-  const filteredStories = stories.filter((story) => {
-    const matchesSearch = story.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         story.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = activeCategory === "Todas" || story.category === activeCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const formattedStories = useMemo(
+    () =>
+      stories.map((story) => {
+        const parsedDate = new Date(story.publishedAt);
+        const formattedDate = Number.isNaN(parsedDate.getTime())
+          ? story.publishedAt
+          : dateFormatter.format(parsedDate);
+
+        return {
+          ...story,
+          formattedDate,
+          readTime: estimateReadTime(story.content),
+          views: estimateViews(story.content),
+        };
+      }),
+    [stories, dateFormatter]
+  );
+
+  const filteredStories = useMemo(() => {
+    const normalizedQuery = searchQuery.trim().toLowerCase();
+
+    return formattedStories.filter((story) => {
+      const matchesSearch =
+        !normalizedQuery ||
+        story.title.toLowerCase().includes(normalizedQuery) ||
+        story.summary.toLowerCase().includes(normalizedQuery);
+
+      const matchesCategory =
+        activeCategory === "Todas" || story.category === activeCategory;
+
+      return matchesSearch && matchesCategory;
+    });
+  }, [formattedStories, searchQuery, activeCategory]);
+
+  const skeletonItems = useMemo(() => Array.from({ length: 6 }), []);
+  const hasNoResults = !isLoading && filteredStories.length === 0;
 
   return (
     <motion.div
@@ -155,58 +126,93 @@ const Stories = () => {
         variants={fadeIn()}
       >
         <div className="container mx-auto">
-          {filteredStories.length > 0 ? (
-            <motion.div 
+          {errorMessage && (
+            <motion.div
+              className="mb-6 rounded-2xl border border-destructive/30 bg-destructive/5 px-6 py-4 text-destructive"
+              variants={fadeInUp()}
+            >
+              {errorMessage}
+            </motion.div>
+          )}
+
+          {isLoading && (
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={staggerChildren(0.08, 0.04)}
+            >
+              {skeletonItems.map((_, index) => (
+                <motion.div key={`skeleton-${index}`} variants={fadeInUp()}>
+                  <Card className="overflow-hidden rounded-3xl border border-border/40 bg-white/70 shadow-sm">
+                    <div className="h-56 w-full bg-muted animate-pulse" />
+                    <CardContent className="p-6 space-y-4">
+                      <div className="flex items-center justify-between text-sm">
+                        <div className="h-4 w-24 rounded bg-muted/70 animate-pulse" />
+                        <div className="h-4 w-32 rounded bg-muted/60 animate-pulse" />
+                      </div>
+                      <div className="space-y-3">
+                        <div className="h-6 w-3/4 rounded bg-muted/70 animate-pulse" />
+                        <div className="h-3 rounded bg-muted/60 animate-pulse" />
+                        <div className="h-3 w-11/12 rounded bg-muted/60 animate-pulse" />
+                        <div className="h-3 w-5/6 rounded bg-muted/60 animate-pulse" />
+                      </div>
+                    </CardContent>
+                    <CardFooter className="px-6 pb-6">
+                      <div className="h-10 w-full rounded-lg bg-muted/60 animate-pulse" />
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {!isLoading && !hasNoResults && (
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               variants={staggerChildren(0.08, 0.04)}
             >
               {filteredStories.map((story) => (
-                <motion.div key={story.id} variants={fadeInUp()}>
-                  <Card className="group hover:shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <motion.div key={story.slug} variants={fadeInUp()}>
+                  <Card className="group overflow-hidden rounded-3xl border border-border/60 bg-white/90 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[var(--shadow-soft)]">
                     <div className="relative h-56 overflow-hidden">
                       <motion.img
                         src={story.image}
                         alt={story.title}
-                        className="w-full h-full object-cover"
+                        className="h-full w-full object-cover"
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.4 }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                       <div className="absolute top-4 right-4">
-                        <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                          {story.category}
+                        <span className="rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
+                          {story.category ?? "Historias"}
                         </span>
                       </div>
                     </div>
-                    <CardContent className="p-6 space-y-4">
+                    <CardContent className="space-y-4 p-6">
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4" />
-                          <span>{story.date}</span>
+                          <Calendar className="h-4 w-4" />
+                          <span className="capitalize">{story.formattedDate}</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <span>{story.readTime} min lectura</span>
                           <div className="flex items-center gap-1">
-                            <Eye className="w-4 h-4" />
+                            <Eye className="h-4 w-4" />
                             <span>{story.views}</span>
                           </div>
                         </div>
                       </div>
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                      <h3 className="line-clamp-2 text-xl font-bold text-foreground transition-colors group-hover:text-primary">
                         {story.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed line-clamp-3">
-                        {story.excerpt}
+                      <p className="line-clamp-3 text-muted-foreground leading-relaxed">
+                        {story.summary}
                       </p>
                     </CardContent>
                     <CardFooter className="px-6 pb-6">
-                      <Button 
-                        variant="outline" 
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
-                        onClick={() => {
-                          // Navigate to individual story page
-                          console.log(`Reading story ${story.id}`);
-                        }}
+                      <Button
+                        variant="outline"
+                        className="w-full transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
+                        onClick={() => navigate(`/blog/${story.slug}`)}
                       >
                         Continuar leyendo
                       </Button>
@@ -215,20 +221,17 @@ const Stories = () => {
                 </motion.div>
               ))}
             </motion.div>
-          ) : (
-            <motion.div 
-              className="text-center py-20"
-              variants={fadeInUp()}
-            >
+          )}
+
+          {hasNoResults && (
+            <motion.div className="py-20 text-center" variants={fadeInUp()}>
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-foreground">
-                  No se encontraron historias
-                </h3>
-                <p className="text-lg text-muted-foreground max-w-md mx-auto">
+                <h3 className="text-2xl font-semibold text-foreground">No se encontraron historias</h3>
+                <p className="mx-auto max-w-md text-lg text-muted-foreground">
                   No hay historias que coincidan con tu búsqueda. Intenta con otros términos o categorías.
                 </p>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={() => {
                     setSearchQuery("");
                     setActiveCategory("Todas");

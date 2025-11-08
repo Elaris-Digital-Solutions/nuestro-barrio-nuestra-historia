@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Respirar Futuro en La Oroya",
+    "date": "2024-11-03",
+    "content": "Nuestro proyecto en La Oroya reconstruye el vínculo entre comunidad y territorio. Conversamos con vecinas y vecinos sobre memorias, miedos y esperanzas, y mapeamos caminatas barriales para reconocer puntos críticos y oportunidades.",
+    "images": ["/assets/blog-1.jpg"],
+    "slug": "respirar-futuro-en-la-oroya",
+    "category": "Comunidad"
+  },
+  {
+    "title": "Marcavalle en el Mapa: Cartografías de lo Cotidiano",
+    "date": "2024-10-20",
+    "content": "La sesión de mapeo comunitario en Marcavalle mostró cómo se habita realmente el barrio. Las y los participantes marcaron rutas seguras, zonas de encuentro y espacios que requieren reactivación, integrando saberes locales con información técnica.",
+    "images": ["/assets/blog-2.jpg"],
+    "slug": "marcavalle-en-el-mapa",
+    "category": "Cartografías"
+  },
+  {
+    "title": "Mirar para Transformar: Fotovoz y Teatro Comunitario",
+    "date": "2024-10-01",
+    "content": "El ejercicio de fotovoz invitó a capturar imágenes de injusticias, resiliencias y deseos de cambio. Esas fotografías impulsaron un laboratorio de teatro comunitario donde las historias cobraron vida y abrieron diálogos sobre convivencia y bienestar.",
+    "images": ["/assets/blog-3.jpg"],
+    "slug": "mirar-para-transformar",
+    "category": "Cultura"
+  }
+]
