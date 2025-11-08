@@ -123,8 +123,8 @@ const Stories = () => {
         </motion.div>
 
         <motion.div className="text-center" variants={fadeInUp(0.2)}>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="lg"
             onClick={() => navigate("/historias")}
             className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg touch-manipulation"
