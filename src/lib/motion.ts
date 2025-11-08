@@ -17,6 +17,20 @@ export const fadeIn = (delay = 0, duration = 0.6): Variants => ({
   },
 });
 
+export const pageTransition: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+  exit: {
+    opacity: 0,
+    y: -16,
+    transition: { duration: 0.35, ease: "easeInOut" },
+  },
+};
+
 export const scaleIn = (delay = 0, duration = 0.6): Variants => ({
   hidden: { opacity: 0, scale: 0.8 },
   visible: {

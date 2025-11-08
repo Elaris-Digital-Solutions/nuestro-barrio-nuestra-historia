@@ -9,12 +9,16 @@ import AliadosQueSuman from "@/components/AliadosQueSuman";
 import NuestroEquipo from "@/components/NuestroEquipo";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { fadeIn } from "@/lib/motion";
+import { fadeIn, pageTransition } from "@/lib/motion";
 
 const Index = () => {
   return (
-    <motion.div className="min-h-screen" initial="hidden" animate="visible" variants={fadeIn()}
-      transition={{ duration: 0.5 }}
+    <motion.div
+      className="min-h-screen"
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={pageTransition}
     >
       <Header />
       <motion.main variants={fadeIn()}>

@@ -9,16 +9,12 @@ const bramRaulPortrait = encodeURI("/assets/Bram-Leo-Willems&Dr.Raúl-Loayza.web
 const teamSlides = [
   {
     image: danielaPortrait,
-    caption: "Daniela Bussalleu Salcedo",
+    caption: "Lic. Daniela Bussalleu Salcedo",
   },
   {
     image: bramRaulPortrait,
     caption: "Dr. Bram Leo Willems y Dr. Raúl Loayza",
     
-  },
-  {
-   image: maribelPortrait,
-    caption: "Dra. Maribel Goncálves", 
   },
 ];
 

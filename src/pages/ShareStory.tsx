@@ -17,7 +17,7 @@ import ImageUpload from "@/components/ImageUpload";
 import RichTextEditor from "@/components/RichTextEditor";
 import { Loader2, ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
-import { fadeIn, fadeInUp } from "@/lib/motion";
+import { fadeIn, fadeInUp, pageTransition } from "@/lib/motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -99,12 +99,12 @@ const ShareStory = () => {
   const categories = ["Comunidad", "Familia", "Aprendizaje", "Naturaleza"];
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen bg-background"
       initial="hidden"
       animate="visible"
-      variants={fadeIn()}
-      transition={{ duration: 0.5 }}
+      exit="exit"
+      variants={pageTransition}
     >
       <Header />
       

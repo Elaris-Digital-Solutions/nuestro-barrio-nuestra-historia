@@ -4,7 +4,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
-import { fadeIn, fadeInUp, staggerChildren, viewportSettings } from "@/lib/motion";
+import { fadeIn, fadeInUp, pageTransition, staggerChildren, viewportSettings } from "@/lib/motion";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -98,12 +98,12 @@ const Stories = () => {
   });
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen bg-background"
       initial="hidden"
       animate="visible"
-      variants={fadeIn()}
-      transition={{ duration: 0.5 }}
+      exit="exit"
+      variants={pageTransition}
     >
       <Header />
       
