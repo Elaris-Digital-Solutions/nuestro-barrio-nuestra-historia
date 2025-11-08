@@ -88,7 +88,7 @@ const Header = () => {
           setLogoPhase("final");
           setHasSwappedToCorrected(true);
         }, 1500);
-      }, 5000);
+      }, 10000);
     }
 
     return () => {
