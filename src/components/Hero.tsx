@@ -9,7 +9,7 @@ const Hero = () => {
     if (!element) return;
 
     const headerOffset = 80;
-    const elementTop = (element as HTMLElement).getBoundingClientRect().top + window.pageYOffset;
+    const elementTop = (element as HTMLElement).getBoundingClientRect().top + window.scrollY;
     const targetPosition = Math.max(elementTop - headerOffset, 0);
 
     window.scrollTo({ top: targetPosition, behavior: "smooth" });
@@ -27,17 +27,20 @@ const Hero = () => {
       }}
     >
       {/* Background Video with Overlay */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.video
+      <div className="absolute inset-0 overflow-hidden bg-gray-900">
+        <video
           className="w-full h-full object-cover"
-          src={heroVideo}
           autoPlay
           loop
           muted
           playsInline
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1, transition: { duration: 1.5, ease: "easeOut" } }}
-        />
+          preload="auto"
+          controls={false}
+          style={{ pointerEvents: 'none' }}
+        >
+          <source src={heroVideo} type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+        </video>
       </div>
 
       {/* Content */}

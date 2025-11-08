@@ -27,7 +27,10 @@ const Header = () => {
   useEffect(() => {
     const preloadImage = new Image();
     const handleLoad = () => setIsCorrectedReady(true);
-    const handleError = () => setIsCorrectedReady(true);
+    const handleError = () => {
+      console.warn('Failed to preload corrected logo');
+      setIsCorrectedReady(true);
+    };
 
     preloadImage.addEventListener("load", handleLoad);
     preloadImage.addEventListener("error", handleError);
