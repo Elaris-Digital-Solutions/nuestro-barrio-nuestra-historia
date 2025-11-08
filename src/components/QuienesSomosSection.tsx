@@ -37,7 +37,7 @@ const QuienesSomosSection = () => {
           {/* Contenido */}
           <motion.div className="order-1 md:order-2 space-y-6" variants={staggerChildren(0.12)}>
             <motion.h2 className="text-4xl sm:text-5xl font-bold text-foreground" variants={fadeInUp(0.15)}>
-              ¿Quiénes <span className="text-primary">somos?</span>
+              ¿Quiénes <span className="text-primary">Somos?</span>
             </motion.h2>
             <motion.p
               className="text-lg text-muted-foreground leading-relaxed whitespace-pre-line"

@@ -1,22 +1,14 @@
-import { Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInUp, staggerChildren, viewportSettings } from "@/lib/motion";
 
 const Footer = () => {
   const navigation = [
-    { name: "Nosotros", href: "#quienes-somos" },
-    { name: "Proyecto", href: "#conoce-el-proyecto" },
-    { name: "Historias", href: "#historias" },
-    { name: "Fotografías", href: "#exposicion" },
-    { name: "Aliados", href: "#aliados" },
-    { name: "Equipo", href: "#equipo" },
-  ];
-
-  const socialLinks = [
-    { icon: Instagram, href: "https://www.instagram.com/daniela.bussalleu?igsh=cXptdDJ5OGZoZmhs", label: "Instagram académico" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/daniela-bussalleu", label: "LinkedIn" },
-    { icon: Phone, href: "tel:+51902749147", label: "Teléfono" },
-    { icon: Mail, href: "mailto:daniela.bussalleu@upch.pe", label: "Email" },
+    { name: "¿Quiénes Somos?", href: "#quienes-somos" },
+    { name: "Conoce el Proyecto", href: "#conoce-el-proyecto" },
+    { name: "Nuestras Historias", href: "#historias" },
+    { name: "Nuestro Equipo", href: "#equipo" },
+    { name: "Exposición Fotográfica", href: "#exposicion" },
   ];
 
   return (
@@ -76,6 +68,15 @@ const Footer = () => {
                 <span>daniela.bussalleu@upch.pe</span>
               </a>
               <a
+                href="https://www.linkedin.com/in/daniela-bussalleu"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 hover:text-primary-foreground transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+                <span>LinkedIn</span>
+              </a>
+              <a
                 href="https://www.instagram.com/daniela.bussalleu?igsh=cXptdDJ5OGZoZmhs"
                 target="_blank"
                 rel="noreferrer"
@@ -84,19 +85,6 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
                 <span>@daniela.bussalleu</span>
               </a>
-              <div className="flex gap-4 mt-4">
-                {socialLinks.map((social) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center"
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </motion.a>
-                ))}
-              </div>
             </div>
           </motion.div>
         </motion.div>

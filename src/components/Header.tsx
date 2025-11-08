@@ -12,14 +12,11 @@ const Header = () => {
   const location = useLocation();
 
   const navigation = [
-       
-
-    { name: "¿Quiénes somos?", href: "#quienes-somos" },
-    { name: "Conoce el proyecto", href: "#conoce-el-proyecto" },
+    { name: "¿Quiénes Somos?", href: "#quienes-somos" },
+    { name: "Conoce el Proyecto", href: "#conoce-el-proyecto" },
+    { name: "Nuestras Historias", href: "#historias" },
     { name: "Nuestro Equipo", href: "#equipo" },
-     { name: "Blog", href: "#historias" },
-    
-    { name: "Exposición fotográfica", href: "#exposicion" },
+    { name: "Exposición Fotográfica", href: "#exposicion" },
   ];
 
   const navItemMotion: Variants = {
@@ -83,7 +80,7 @@ const Header = () => {
             animate="visible"
           >
             {navigation.map((item) => {
-              const isButton = item.name === "Exposición fotográfica";
+              const isButton = item.name === "Exposición Fotográfica";
 
               if (isButton) {
                 return (
@@ -148,7 +145,7 @@ const Header = () => {
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.25, ease: "easeOut", delay: 0.05 * index }}
                 >
-                  {item.name === "Conoce el proyecto" ? (
+                  {item.name === "Exposición Fotográfica" ? (
                     <Button
                       asChild
                       className="w-full bg-primary text-primary-foreground font-semibold rounded-full shadow-md hover:bg-primary/90 transition-colors"

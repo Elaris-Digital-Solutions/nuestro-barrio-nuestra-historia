@@ -41,7 +41,7 @@ const Stories = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center mb-12 sm:mb-16" variants={staggerChildren(0.15)}>
           <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4" variants={fadeInUp(0.1)}>
-           <span className="text-primary">Blog</span>
+           Nuestras<span className="text-primary"> Historias</span>
           </motion.h2>
           <motion.p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4" variants={fadeInUp(0.2)}>
             Descubre las historias que dan vida a nuestro barrio

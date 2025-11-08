@@ -32,7 +32,7 @@ const IncidenciaSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center max-w-3xl mx-auto" variants={staggerChildren(0.12)}>
           <motion.h2 className="text-4xl sm:text-5xl font-bold text-foreground mt-6" variants={fadeInUp(0.1)}>
-            Expandimos la voz del <span className="text-primary">territorio</span>
+            Expandimos la voz del <span className="text-primary">Territorio</span>
           </motion.h2>
           <motion.p className="mt-4 text-lg text-muted-foreground" variants={fadeInUp(0.15)}>
             Nuestros procesos terminan en espacios donde las historias se vuelven acción pública y memoria compartida.

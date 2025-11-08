@@ -58,7 +58,7 @@ const ExposicionFotografica = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center mb-12" variants={staggerChildren(0.12)}>
           <motion.h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4" variants={fadeInUp(0.1)}>
-            Exposición <span className="text-primary">fotográfica</span>
+            Exposición <span className="text-primary">Fotográfica</span>
           </motion.h2>
           <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto" variants={fadeInUp(0.2)}>
             En esta sección se presentarán las fotografías y textos elaborados durante el proceso de fotovoz, resultado del trabajo
