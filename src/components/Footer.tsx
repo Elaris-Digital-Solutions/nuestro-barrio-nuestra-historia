@@ -74,7 +74,7 @@ const Footer = () => {
                 className="flex items-center gap-3 hover:text-primary-foreground transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
-                <span>LinkedIn</span>
+                <span>Daniela Bussalleu</span>
               </a>
               <a
                 href="https://www.instagram.com/daniela.bussalleu?igsh=cXptdDJ5OGZoZmhs"
