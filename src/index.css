@@ -195,11 +195,10 @@ All colors MUST be HSL.
 
 @media (max-width: 480px) {
   .image-carousel__caption {
-    position: static;
-    margin-top: 0.5rem;
-    background: transparent;
-    color: var(--foreground);
-    text-shadow: none;
-    padding: 0;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
   }
 }
