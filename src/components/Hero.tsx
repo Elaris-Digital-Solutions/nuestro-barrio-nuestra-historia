@@ -38,7 +38,7 @@ const Hero = () => {
         >
           Nuestro Barrio,
           <br />
-          <span className="text-primary">Nuestra Historia</span>
+          <span className="text-primary italic">Nuestra Historia</span>
         </motion.h1>
         <motion.p
           className="text-xl sm:text-2xl text-white mb-10 max-w-3xl mx-auto italic"
