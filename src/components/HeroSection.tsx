@@ -19,21 +19,14 @@ const containerVariants = {
   },
 };
 
-const logoVariant = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    transition: { duration: 0.8, ease: "easeOut" }
-  },
-};
+const easeBezier = [0.22, 1, 0.36, 1] as const;
 
 const textVariant = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: easeBezier }
   },
 };
 
@@ -42,7 +35,7 @@ const buttonVariant = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: easeBezier }
   },
 };
 
@@ -84,19 +77,6 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.div
-          variants={logoVariant}
-          className="w-full flex justify-center mb-8"
-        >
-          <div className="max-w-4xl w-full">
-            <img 
-              src="/Logo.png" 
-              alt="CICLOMIN"
-              className="h-24 md:h-32 lg:h-40 w-auto mx-auto object-contain drop-shadow-2xl"
-            />
-          </div>
-        </motion.div>
-
         <motion.div variants={textVariant} className="mb-6">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent px-4">
             Ciencia que conecta para transformar

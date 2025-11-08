@@ -165,17 +165,6 @@ const Header = () => {
                   )}
                 </motion.div>
               ))}
-              <motion.div
-                className="px-4 pt-2"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.25, ease: "easeOut", delay: 0.2 }}
-              >
-                <Button variant="hero" size="lg" className="w-full">
-                  Únete
-                </Button>
-              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

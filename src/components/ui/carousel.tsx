@@ -105,25 +105,20 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           />
 
           <div
-            className={`absolute inset-0 transition-opacity duration-500 ease-out ${
+            className={`pointer-events-none absolute inset-x-0 bottom-0 rounded-[1%] overflow-hidden transition-opacity duration-500 ease-out ${
               current === index ? "opacity-100" : "opacity-40"
             }`}
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
             <div
-              className={`absolute inset-x-0 bottom-0 px-[4vmin] pb-[4vmin] pt-[3vmin] text-left text-white transition-opacity duration-500 ${
+              className={`relative z-10 px-[4vmin] pb-[4vmin] pt-[3vmin] text-left text-white transition-opacity duration-500 pointer-events-auto ${
                 current === index ? "opacity-0 group-hover:opacity-100" : "opacity-0"
               }`}
             >
-              <div className="rounded-[1%] bg-gradient-to-t from-[rgba(0,0,0,0.6)] via-[rgba(0,0,0,0.3)] to-transparent p-6 backdrop-blur-[2px]">
-                <h2 className="text-base md:text-lg lg:text-xl font-semibold mb-3">
-                  {title}
-                </h2>
-                <p className="text-sm md:text-base leading-relaxed text-white/90">
-                  {description}
-                </p>
-              </div>
+              <p className="text-sm md:text-base leading-relaxed text-white/90">
+                {description}
+              </p>
             </div>
           </div>
         </div>
