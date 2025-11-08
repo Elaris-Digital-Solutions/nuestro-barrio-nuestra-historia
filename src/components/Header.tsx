@@ -17,12 +17,23 @@ const Header = () => {
     typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches;
   const [isDesktop, setIsDesktop] = useState(getIsDesktop);
   const [hasSwappedToCorrected, setHasSwappedToCorrected] = useState(false);
+  const [isCorrectedReady, setIsCorrectedReady] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const preloadImage = new Image();
+    const handleLoad = () => setIsCorrectedReady(true);
+    const handleError = () => setIsCorrectedReady(true);
+
+    preloadImage.addEventListener("load", handleLoad);
+    preloadImage.addEventListener("error", handleError);
     preloadImage.src = logoCorrected;
+
+    return () => {
+      preloadImage.removeEventListener("load", handleLoad);
+      preloadImage.removeEventListener("error", handleError);
+    };
   }, []);
 
   useEffect(() => {
@@ -86,7 +97,6 @@ const Header = () => {
         setLogoPhase("animating");
         finishTimer = window.setTimeout(() => {
           setLogoPhase("final");
-          setHasSwappedToCorrected(true);
         }, 1500);
       }, 10000);
     }
@@ -96,6 +106,12 @@ const Header = () => {
       if (finishTimer) window.clearTimeout(finishTimer);
     };
   }, [isDesktop, hasSwappedToCorrected]);
+
+  useEffect(() => {
+    if (!isDesktop && logoPhase === "final" && isCorrectedReady) {
+      setHasSwappedToCorrected(true);
+    }
+  }, [isDesktop, logoPhase, isCorrectedReady]);
 
   const navigation = [
     { name: "¿Quiénes Somos?", href: "#quienes-somos" },
@@ -114,7 +130,7 @@ const Header = () => {
     },
   };
 
-  const showCorrectedLogo = hasSwappedToCorrected && logoPhase === "final";
+  const showCorrectedLogo = !isDesktop && hasSwappedToCorrected;
   const animatedLogoWidth = isDesktop ? "min(24vw, 380px)" : "min(70vw, 300px)";
   const correctedLogoWidth = isDesktop ? "min(24vw, 380px)" : "min(58vw, 260px)";
   const clipInitial = isDesktop ? "inset(0% 100% 0% 0%)" : "inset(0% 0% 0% 0%)";
