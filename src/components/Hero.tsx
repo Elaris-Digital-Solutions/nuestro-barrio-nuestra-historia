@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-const heroVideo = "/assets/video-hero.mov";
+const heroVideo = "/assets/video-hero.mp4";
 
 const Hero = () => {
   const handleScrollTo = (selector: string) => {
