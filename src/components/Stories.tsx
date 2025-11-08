@@ -7,22 +7,25 @@ import { useNavigate } from "react-router-dom";
 
 const stories = [
   {
-    title: "El Almacén de Don José",
-    date: "15 de Octubre, 2024",
-    excerpt: "Durante más de 40 años, Don José ha sido el corazón del barrio. Su almacén no solo vende productos, sino que guarda las historias de generaciones...",
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=600&fit=crop",
+    title: "Respirar Futuro en La Oroya",
+    date: "3 de Noviembre, 2024",
+    excerpt:
+      "Nuestro proyecto en La Oroya reconstruye el vínculo entre comunidad y territorio. Conversamos con vecinas y vecinos sobre memorias, miedos y esperanzas, y mapeamos caminatas barriales para reconocer puntos críticos y oportunidades...",
+    image: "/assets/blog-1.jpg",
   },
   {
-    title: "La Plaza que nos Une",
-    date: "8 de Octubre, 2024",
-    excerpt: "La plaza central ha sido testigo de celebraciones, encuentros y momentos inolvidables. Vecinos comparten sus recuerdos más preciados...",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
+    title: "Marcavalle en el Mapa: Cartografías de lo Cotidiano",
+    date: "20 de Octubre, 2024",
+    excerpt:
+      "La sesión de mapeo comunitario en Marcavalle mostró cómo se habita realmente el barrio. Las y los participantes marcaron rutas seguras, zonas de encuentro y espacios que requieren reactivación, integrando saberes locales con información técnica...",
+    image: "/assets/blog-2.jpg",
   },
   {
-    title: "Tradiciones que Perduran",
+    title: "Mirar para Transformar: Fotovoz y Teatro Comunitario",
     date: "1 de Octubre, 2024",
-    excerpt: "Las fiestas patronales siguen siendo el evento más esperado del año. Descubre cómo se han mantenido vivas estas tradiciones...",
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop",
+    excerpt:
+      "El ejercicio de fotovoz invitó a capturar imágenes de injusticias, resiliencias y deseos de cambio. Esas fotografías impulsaron un laboratorio de teatro comunitario donde las historias cobraron vida y abrieron diálogos sobre convivencia y bienestar...",
+    image: "/assets/blog-3.jpg",
   },
 ];
 
@@ -70,7 +73,7 @@ const Stories = () => {
                   <h3 className="text-xl sm:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
                     {story.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
                     {story.excerpt}
                   </p>
                 </CardContent>

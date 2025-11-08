@@ -34,7 +34,7 @@ const IncidenciaSection = () => {
           <motion.h2 className="text-4xl sm:text-5xl font-bold text-foreground mt-6" variants={fadeInUp(0.1)}>
             Expandimos la voz del <span className="text-primary">Territorio</span>
           </motion.h2>
-          <motion.p className="mt-4 text-lg text-muted-foreground" variants={fadeInUp(0.15)}>
+          <motion.p className="mt-4 text-lg text-muted-foreground text-center" variants={fadeInUp(0.15)}>
             Nuestros procesos terminan en espacios donde las historias se vuelven acción pública y memoria compartida.
           </motion.p>
         </motion.div>
@@ -49,13 +49,15 @@ const IncidenciaSection = () => {
               className="rounded-3xl border border-border bg-background shadow-[0_15px_45px_-20px_rgba(20,20,20,0.2)] p-8 flex flex-col gap-5"
               variants={fadeInUp(0.12 + index * 0.06)}
             >
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                <pillar.icon className="h-7 w-7" />
+              <div className="flex items-start gap-4">
+                <div className="inline-flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <pillar.icon className="h-7 w-7" />
+                </div>
+                <h3 className="text-2xl font-semibold text-foreground leading-tight">
+                  {pillar.title}
+                </h3>
               </div>
-              <h3 className="text-2xl font-semibold text-foreground leading-tight">
-                {pillar.title}
-              </h3>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed text-justify">
                 {pillar.description}
               </p>
             </motion.article>

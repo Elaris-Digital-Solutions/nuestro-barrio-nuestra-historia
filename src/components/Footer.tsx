@@ -96,7 +96,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         >
-          <p>&copy; {new Date().getFullYear()} Nuestro Barrio, Nuestra Historia. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Nuestro Barrio, Nuestra Historia. Todos los derechos reservados. Desarrollado por Elaris Digital Solutions</p>
         </motion.div>
       </div>
     </motion.footer>

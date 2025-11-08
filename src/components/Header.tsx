@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
@@ -8,8 +8,28 @@ import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHeroInView, setIsHeroInView] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const heroElement = document.getElementById("inicio");
+    if (!heroElement) {
+      setIsHeroInView(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroInView(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(heroElement);
+
+    return () => observer.disconnect();
+  }, []);
 
   const navigation = [
     { name: "¿Quiénes Somos?", href: "#quienes-somos" },
@@ -42,7 +62,11 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm ${
+        isHeroInView
+          ? "bg-gradient-to-b from-white/90 via-white/75 to-white/60"
+          : "bg-background/95 border-b border-border"
+      }`}
       initial={{ y: -32, opacity: 0 }}
       animate={{ y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
     >
