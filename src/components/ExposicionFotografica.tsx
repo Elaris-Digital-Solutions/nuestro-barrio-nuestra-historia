@@ -5,42 +5,42 @@ import { Carousel } from "@/components/ui/carousel";
 const slides = [
   {
     title: "Oroya I",
-    src: "/assets/oroya%201.jpeg.jpg",
+    src: "/assets/oroya-1.jpg",
     description: "A veces el cielo es gris por el humo, pero igual salimos a jugar. Quisiera que el aire sea más limpio para que no nos duelan los pulmones después de correr.",
   },
   {
     title: "Oroya II",
-    src: "/assets/oroya%202.jpeg.jpg",
+    src: "/assets/oroya-2.jpg",
     description: "Este es el camino que tomo todos los días. Me gusta porque puedo ver las montañas, pero también siento que el polvo se pega en la ropa y en la garganta.",
   },
   {
     title: "Oroya III",
-    src: "/assets/oroya%203.jpeg.jpg",
+    src: "/assets/oroya-3.jpg",
     description: "La quebrada antes era más clara, eso dicen mis papás. Yo no la conocí así. Me gustaría que vuelva a verse el fondo del agua.",
   },
   {
     title: "Oroya IV",
-    src: "/assets/oroya%204.jpg",
+    src: "/assets/oroya-4.jpg",
     description: "Aquí nos reunimos para conversar. Aunque está cerca de la fábrica, es nuestro lugar. Si lo arreglaran y sembraran árboles, sería más bonito para todos.",
   },
   {
     title: "Oroya V",
-    src: "/assets/oroya%205.jpg",
+    src: "/assets/oroya-5.jpg",
     description: "La casa de mi abuela siempre está limpia, pero igual entra el polvo. Ella dice que es por el viento que viene de la empresa. Quisiera que ya no tenga que barrer tantas veces.",
   },
   {
     title: "Oroya VI",
-    src: "/assets/oroya%206.png",
+    src: "/assets/oroya-6.jpg",
     description: "En este árbol jugábamos cuando éramos más pequeños. Ahora sus hojas se caen más rápido. Ojalá lo cuidaran y crecieran más árboles como él.",
   },
   {
     title: "Oroya VII",
-    src: "/assets/oroya%207.jpg",
+    src: "/assets/oroya-7.jpg",
     description: "Me gusta esta vista porque me recuerda que la ciudad no es solo contaminación. También tenemos montañas, colores y gente que quiere cambiar las cosas.",
   },
   {
     title: "Oroya VIII",
-    src: "/assets/oroya%208.jpeg",
+    src: "/assets/oroya-8.jpg",
     description: "Este poste está pintado por nosotros. Fue un trabajo del colegio. Para mí es un símbolo de que sí podemos mejorar nuestro barrio si todos ayudamos.",
   },
 ];
