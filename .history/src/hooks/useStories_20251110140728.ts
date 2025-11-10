@@ -14,7 +14,6 @@ export type Story = {
   summary: string;
   content: string;
   image: string;
-  images: string[];
   publishedAt: string;
   slug: string;
   category: string;
@@ -65,7 +64,6 @@ const mapApiStoryToStory = (item: ApiStory): Story | null => {
     summary,
     content: cleanedContent,
     image: item.images && item.images.length > 0 ? item.images[0] : FALLBACK_IMAGE,
-    images: item.images && item.images.length > 0 ? item.images : [FALLBACK_IMAGE],
     publishedAt: item.date,
     slug: item.slug,
     category: item.category ?? "Historias",
@@ -118,9 +116,9 @@ Más allá de los talleres y los mapas, lo más valioso ha sido el fortalecimien
 
 Este es apenas el comienzo. Las semillas plantadas durante estos meses seguirán germinando en forma de proyectos comunitarios, espacios de encuentro y acciones colectivas que buscan construir un futuro donde La Oroya pueda respirar tranquila, con orgullo de su pasado y esperanza en su porvenir.`,
     images: [
-      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&h=600&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=1200&h=600&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1600&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&h=600&fit=crop"
     ],
     date: "2024-11-02",
     slug: "respirar-futuro-la-oroya",
@@ -130,10 +128,7 @@ Este es apenas el comienzo. Las semillas plantadas durante estos meses seguirán
     title: "Marcavalle en el Mapa: Cartografías de lo Cotidiano",
     content:
       "La sesión de mapeo comunitario en Marcavalle mostró cómo se habita realmente el barrio. Las y los participantes marcaron rutas seguras, zonas de encuentro y espacios que requieren reactivación, integrando saberes locales con información técnica.",
-    images: [
-      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&q=80"
-    ],
+    images: ["/assets/blog-2.jpg"],
     date: "2024-10-20",
     slug: "marcavalle-en-el-mapa",
     category: "Cartografías",
@@ -142,10 +137,7 @@ Este es apenas el comienzo. Las semillas plantadas durante estos meses seguirán
     title: "Mirar para Transformar: Fotovoz y Teatro Comunitario",
     content:
       "El ejercicio de fotovoz invitó a capturar imágenes de injusticias, resiliencias y deseos de cambio. Esas fotografías impulsaron un laboratorio de teatro comunitario donde las historias cobraron vida y abrieron diálogos sobre convivencia y bienestar.",
-    images: [
-      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1200&h=600&fit=crop&q=80"
-    ],
+    images: ["/assets/blog-3.jpg"],
     date: "2024-10-01",
     slug: "mirar-para-transformar",
     category: "Cultura",

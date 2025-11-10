@@ -130,10 +130,7 @@ Este es apenas el comienzo. Las semillas plantadas durante estos meses seguirán
     title: "Marcavalle en el Mapa: Cartografías de lo Cotidiano",
     content:
       "La sesión de mapeo comunitario en Marcavalle mostró cómo se habita realmente el barrio. Las y los participantes marcaron rutas seguras, zonas de encuentro y espacios que requieren reactivación, integrando saberes locales con información técnica.",
-    images: [
-      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&q=80"
-    ],
+    images: ["/assets/blog-2.jpg"],
     date: "2024-10-20",
     slug: "marcavalle-en-el-mapa",
     category: "Cartografías",
@@ -142,10 +139,7 @@ Este es apenas el comienzo. Las semillas plantadas durante estos meses seguirán
     title: "Mirar para Transformar: Fotovoz y Teatro Comunitario",
     content:
       "El ejercicio de fotovoz invitó a capturar imágenes de injusticias, resiliencias y deseos de cambio. Esas fotografías impulsaron un laboratorio de teatro comunitario donde las historias cobraron vida y abrieron diálogos sobre convivencia y bienestar.",
-    images: [
-      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&h=800&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1200&h=600&fit=crop&q=80"
-    ],
+    images: ["/assets/blog-3.jpg"],
     date: "2024-10-01",
     slug: "mirar-para-transformar",
     category: "Cultura",
