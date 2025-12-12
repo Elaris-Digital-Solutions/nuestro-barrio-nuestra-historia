@@ -9,7 +9,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('inicio');
-  
+
   const { scrollY } = useScroll();
   // Verde específico del proyecto: #009929 (0, 153, 41) - verde más intenso y profesional
   const navBackground = useTransform(scrollY, [0, 100], ["rgba(0, 153, 41, 0)", "rgba(0, 153, 41, 0.95)"]);
@@ -26,7 +26,7 @@ const Navbar = () => {
         }
         return false;
       });
-      
+
       if (current && current !== activeSection) {
         setActiveSection(current);
       }
@@ -55,28 +55,28 @@ const Navbar = () => {
     { id: 'quienes-somos', label: '¿Quiénes somos?' },
     { id: 'proyecto', label: 'Conoce el proyecto' },
     { id: 'exposicion', label: 'Exposición fotográfica' },
-    { id: 'blog', label: 'Blog' },
+    // { id: 'blog', label: 'Blog' },
     { id: 'recursos', label: 'Recursos libres' }
   ];
 
   return (
-    <motion.nav 
-      style={{ 
+    <motion.nav
+      style={{
         backgroundColor: navBackground,
-        backdropFilter: navBackdropFilter 
+        backdropFilter: navBackdropFilter
       }}
       className="fixed top-0 left-0 right-0 z-50"
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <motion.div 
+          <motion.div
             className="text-xl font-bold text-white cursor-pointer"
             onClick={() => scrollToSection('inicio')}
             whileHover={{ scale: 1.02 }}
           >
             Nuestro barrio
           </motion.div>
-          
+
           <div className="hidden md:flex items-center space-x-2">
             {navItems.map(item => (
               <motion.button

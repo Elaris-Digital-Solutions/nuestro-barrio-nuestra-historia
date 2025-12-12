@@ -118,7 +118,7 @@ const Header = () => {
   const navigation = [
     { name: "¿Quiénes Somos?", href: "#quienes-somos" },
     { name: "Conoce el Proyecto", href: "#conoce-el-proyecto" },
-    { name: "Nuestras Historias", href: "#historias" },
+    // { name: "Nuestras Historias", href: "#historias" },
     { name: "Nuestro Equipo", href: "#equipo" },
     { name: "Exposición Fotográfica", href: "#exposicion" },
   ];
@@ -178,7 +178,7 @@ const Header = () => {
 
   const handleNavigation = (hash: string) => {
     setIsMenuOpen(false);
-    
+
     if (location.pathname !== "/") {
       navigate("/");
       scheduleScrollAttempt(hash, 250);
@@ -241,11 +241,10 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm ${
-        isHeroInView
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm ${isHeroInView
           ? "bg-gradient-to-b from-white/90 via-white/75 to-white/60"
           : "bg-background/95 border-b border-border"
-      }`}
+        }`}
       initial={{ y: -32, opacity: 0 }}
       animate={{ y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
     >
@@ -346,7 +345,7 @@ const Header = () => {
                 </motion.a>
               );
             })}
-            
+
           </motion.div>
 
           {/* Mobile menu button */}

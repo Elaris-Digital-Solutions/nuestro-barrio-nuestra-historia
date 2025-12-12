@@ -14,7 +14,7 @@ const teamSlides = [
   {
     image: bramRaulPortrait,
     caption: "Dr. Bram Leo Willems y Dr. Raúl Loayza",
-    
+
   },
 ];
 
@@ -22,11 +22,11 @@ const NuestroEquipo = () => {
   return (
     <motion.section
       id="equipo"
-      className="py-20 bg-white"
+      className="py-20 bg-[#FBF0ED]"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
-  variants={sectionReveal({ delayChildren: 0.05, staggerChildren: 0.08 })}
+      variants={sectionReveal({ delayChildren: 0.05, staggerChildren: 0.08 })}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

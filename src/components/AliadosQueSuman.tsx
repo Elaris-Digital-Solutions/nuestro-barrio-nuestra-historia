@@ -14,11 +14,11 @@ const AliadosQueSuman = () => {
   return (
     <motion.section
       id="aliados"
-      className="py-20 bg-[#FBF0ED]"
+      className="py-20 bg-white"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
-  variants={sectionReveal({ delayChildren: 0.05, staggerChildren: 0.08 })}
+      variants={sectionReveal({ delayChildren: 0.05, staggerChildren: 0.08 })}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
