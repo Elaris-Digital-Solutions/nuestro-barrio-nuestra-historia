@@ -1,6 +1,66 @@
+import { useState, useEffect, useRef } from "react";
 import { Instagram, Linkedin, Mail } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, fadeInUp, staggerChildren, viewportSettings } from "@/lib/motion";
+
+const logos = [
+  { src: "/assets/CICLOMIN.png", alt: "Ciclomin", width: "w-auto" },
+  { src: "/assets/AMSAC.png", alt: "AMSAC", width: "w-auto" },
+  { src: "/assets/COM_CULTURAL.png", alt: "COMCULTURAL", width: "w-auto" },
+];
+
+const ROTATION_INTERVAL = 4000;
+
+const LogoRotator = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % logos.length);
+    }, ROTATION_INTERVAL);
+
+    return () => clearInterval(intervalId);
+  }, [isVisible]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="h-24 w-48 relative flex items-center justify-start overflow-hidden"
+    >
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentIndex}
+          src={logos[currentIndex].src}
+          alt={logos[currentIndex].alt}
+          className={`h-full object-contain ${logos[currentIndex].width}`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.5 }}
+        />
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const Footer = () => {
   const navigation = [
@@ -23,13 +83,7 @@ const Footer = () => {
         <motion.div className="grid md:grid-cols-3 gap-8 mb-8" variants={staggerChildren(0.08)}>
           {/* Logo and Description */}
           <motion.div className="space-y-4" variants={fadeInUp(0.1)}>
-            <motion.img
-              src="/assets/CICLOMIN.png"
-              alt="Nuestro Barrio, Nuestra Historia"
-              className="h-20 w-auto md:h-24"
-              whileHover={{ rotate: 2 }}
-              transition={{ type: "spring", stiffness: 260, damping: 18 }}
-            />
+            <LogoRotator />
             <motion.p
               className="text-primary-foreground/80 text-sm leading-relaxed"
               variants={fadeInUp(0.2)}
