@@ -5,43 +5,178 @@ import { Carousel } from "@/components/ui/carousel";
 const slides = [
   {
     title: "Oroya I",
-    src: "/assets/oroya-1.jpg",
-    description: "A veces el cielo es gris por el humo, pero igual salimos a jugar. Quisiera que el aire sea más limpio para que no nos duelan los pulmones después de correr.",
+    src: "/assets/n.b.n.h-carousel/1.JPG",
+    description: "“Soy la feria de Marcavalle y ¡me gusta que me mantengan colorida!”",
   },
   {
     title: "Oroya II",
-    src: "/assets/oroya-2.jpg",
-    description: "Este es el camino que tomo todos los días. Me gusta porque puedo ver las montañas, pero también siento que el polvo se pega en la ropa y en la garganta.",
+    src: "/assets/n.b.n.h-carousel/2.jpg",
+    description: "“Soy el Río Yauli y tengo a mi alrededor las casas de los 40 ladrones”",
   },
   {
     title: "Oroya III",
-    src: "/assets/oroya-3.jpg",
-    description: "La quebrada antes era más clara, eso dicen mis papás. Yo no la conocí así. Me gustaría que vuelva a verse el fondo del agua.",
+    src: "/assets/n.b.n.h-carousel/3.jpg",
+    description: "“Somos las casas de los 40 ladrones y tenemos mucha historia, aunque no la conozcan muchos....”",
   },
   {
     title: "Oroya IV",
-    src: "/assets/oroya-4.jpg",
-    description: "Aquí nos reunimos para conversar. Aunque está cerca de la fábrica, es nuestro lugar. Si lo arreglaran y sembraran árboles, sería más bonito para todos.",
+    src: "/assets/n.b.n.h-carousel/4.jpg",
+    description: "",
   },
   {
     title: "Oroya V",
-    src: "/assets/oroya-5.jpg",
-    description: "La casa de mi abuela siempre está limpia, pero igual entra el polvo. Ella dice que es por el viento que viene de la empresa. Quisiera que ya no tenga que barrer tantas veces.",
+    src: "/assets/n.b.n.h-carousel/5.jpg",
+    description: "",
   },
   {
     title: "Oroya VI",
-    src: "/assets/oroya-6.jpg",
-    description: "En este árbol jugábamos cuando éramos más pequeños. Ahora sus hojas se caen más rápido. Ojalá lo cuidaran y crecieran más árboles como él.",
+    src: "/assets/n.b.n.h-carousel/6.jpg",
+    description: "",
   },
   {
     title: "Oroya VII",
-    src: "/assets/oroya-7.jpg",
-    description: "Me gusta esta vista porque me recuerda que la ciudad no es solo contaminación. También tenemos montañas, colores y gente que quiere cambiar las cosas.",
+    src: "/assets/n.b.n.h-carousel/7.JPG",
+    description: "",
   },
   {
     title: "Oroya VIII",
-    src: "/assets/oroya-8.jpg",
-    description: "Este poste está pintado por nosotros. Fue un trabajo del colegio. Para mí es un símbolo de que sí podemos mejorar nuestro barrio si todos ayudamos.",
+    src: "/assets/n.b.n.h-carousel/8.JPG",
+    description: "“Soy el camino que llevó riqueza a La Oroya”",
+  },
+  {
+    title: "Oroya IX",
+    src: "/assets/n.b.n.h-carousel/9.JPG",
+    description: "“Soy el SEYO, la historia que sigue viva...”",
+  },
+  {
+    title: "Oroya X",
+    src: "/assets/n.b.n.h-carousel/10.jpg",
+    description: "“Soy el SEYO, la historia que sigue viva...”",
+  },
+  {
+    title: "Oroya XI",
+    src: "/assets/n.b.n.h-carousel/11.png",
+    description: "“Soy un elefante y represento la buena suerte”",
+  },
+  {
+    title: "Oroya XII",
+    src: "/assets/n.b.n.h-carousel/12.jpg",
+    description: "",
+  },
+  {
+    title: "Oroya XIII",
+    src: "/assets/n.b.n.h-carousel/13.JPG",
+    description: "“Soy la plaza y los chicos ma visitan cuando están tristes, para sentirse tranquilos”",
+  },
+  {
+    title: "Oroya XIV",
+    src: "/assets/n.b.n.h-carousel/14.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XV",
+    src: "/assets/n.b.n.h-carousel/15.jpg",
+    description: "",
+  },
+  {
+    title: "Oroya XVI",
+    src: "/assets/n.b.n.h-carousel/16.JPG",
+    description: "“Soy la entrada de un lugar que muere poco a poco”",
+  },
+  {
+    title: "Oroya XVII",
+    src: "/assets/n.b.n.h-carousel/17.JPG",
+    description: "“Soy el bosque triste porque me seco día a día”",
+  },
+  {
+    title: "Oroya XVIII",
+    src: "/assets/n.b.n.h-carousel/18.JPG",
+    description: "“Fui una casa de aves históricas de La Oroya, hasta que me convertí en una cárcel de la que tuvieron que escapar”",
+  },
+  {
+    title: "Oroya XIX",
+    src: "/assets/n.b.n.h-carousel/19.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XX",
+    src: "/assets/n.b.n.h-carousel/20.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XXI",
+    src: "/assets/n.b.n.h-carousel/21.jpg",
+    description: "",
+  },
+  {
+    title: "Oroya XXII",
+    src: "/assets/n.b.n.h-carousel/22.jpg",
+    description: "",
+  },
+  {
+    title: "Oroya XXIII",
+    src: "/assets/n.b.n.h-carousel/23.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XXIV",
+    src: "/assets/n.b.n.h-carousel/24.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XXV",
+    src: "/assets/n.b.n.h-carousel/25.JPG",
+    description: "“¡Desentiérrennos y cuídennos que queremos hacer felices a los niños!”",
+  },
+  {
+    title: "Oroya XXVI",
+    src: "/assets/n.b.n.h-carousel/26.JPG",
+    description: "“Sigan deslizándose en mi como sus antepasados lo hicieron…”",
+  },
+  {
+    title: "Oroya XXVII",
+    src: "/assets/n.b.n.h-carousel/27.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XXVIII",
+    src: "/assets/n.b.n.h-carousel/28.JPG",
+    description: "“Soy el cerro y me gustaría volver a ser como antes: que crezca vegetación”",
+  },
+  {
+    title: "Oroya XXIX",
+    src: "/assets/n.b.n.h-carousel/29.JPG",
+    description: "“Soy el río Mantaro y produzco trucha”",
+  },
+  {
+    title: "Oroya XXX",
+    src: "/assets/n.b.n.h-carousel/30.JPG",
+    description: "“Soy el tendedero y me gusta secar ropa con el sol que lavaron el el río Mantaro”",
+  },
+  {
+    title: "Oroya XXXI",
+    src: "/assets/n.b.n.h-carousel/31.JPG",
+    description: "“Soy la lengua del diablo y me gusta romper pantalones”",
+  },
+  {
+    title: "Oroya XXXII",
+    src: "/assets/n.b.n.h-carousel/32.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XXXIII",
+    src: "/assets/n.b.n.h-carousel/33.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XXXIV",
+    src: "/assets/n.b.n.h-carousel/34.JPG",
+    description: "",
+  },
+  {
+    title: "Oroya XXXV",
+    src: "/assets/n.b.n.h-carousel/35.JPG",
+    description: "",
   },
 ];
 

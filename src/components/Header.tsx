@@ -242,8 +242,8 @@ const Header = () => {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm ${isHeroInView
-          ? "bg-gradient-to-b from-white/90 via-white/75 to-white/60"
-          : "bg-background/95 border-b border-border"
+        ? "bg-gradient-to-b from-white/90 via-white/75 to-white/60"
+        : "bg-background/95 border-b border-border"
         }`}
       initial={{ y: -32, opacity: 0 }}
       animate={{ y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
@@ -257,10 +257,16 @@ const Header = () => {
         >
           {/* Logo */}
           <motion.div className="flex items-center gap-3" variants={fadeInUp(0.05)}>
-            <motion.button
-              type="button"
+            <motion.div
+              role="button"
+              tabIndex={0}
               onClick={handleLogoClick}
-              className="flex items-center focus:outline-none md:-ml-2 lg:-ml-4"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleLogoClick();
+                }
+              }}
+              className="flex items-center focus:outline-none md:-ml-2 lg:-ml-4 cursor-pointer"
               aria-label="Ir al inicio"
               whileTap={{ scale: 0.96 }}
               whileHover={{ rotate: -4 }}
@@ -298,7 +304,7 @@ const Header = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.button>
+            </motion.div>
           </motion.div>
 
           {/* Desktop Navigation */}

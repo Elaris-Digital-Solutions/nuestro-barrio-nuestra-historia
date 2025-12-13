@@ -313,7 +313,7 @@ export function Carousel({ slides }: CarouselProps) {
             disabled={isTransitioning}
           />
 
-          <div className="flex items-center gap-2 mx-4">
+          <div className="hidden md:flex items-center gap-2 mx-4">
             {slides.map((_, index) => (
               <button
                 key={index}
