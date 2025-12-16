@@ -86,7 +86,7 @@ const Slide = ({ slide, index, current, handleSlideClick, isAnimating }: SlidePr
         }}
       >
         <div
-          className="absolute top-0 left-0 w-full h-full bg-[#1D1F2F] rounded-[1%] overflow-hidden transition-all duration-150 ease-out"
+          className="relative max-w-full max-h-full rounded-[1%] overflow-hidden transition-all duration-150 ease-out"
           style={{
             transform:
               current === index
@@ -95,7 +95,7 @@ const Slide = ({ slide, index, current, handleSlideClick, isAnimating }: SlidePr
           }}
         >
           <img
-            className={`absolute inset-0 w-[120%] h-[120%] object-cover opacity-100 transition-opacity duration-600 ease-in-out ${!isAnimating ? "transition-none duration-0" : ""
+            className={`block w-auto h-auto max-w-full max-h-full object-contain opacity-100 transition-opacity duration-600 ease-in-out ${!isAnimating ? "transition-none duration-0" : ""
               }`}
             style={{
               opacity: current === index ? 1 : 0.6,

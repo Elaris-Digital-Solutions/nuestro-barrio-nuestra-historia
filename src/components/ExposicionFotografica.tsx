@@ -46,7 +46,7 @@ const slides = [
   {
     title: "Oroya IX",
     src: "/assets/n.b.n.h-carousel/9.JPG",
-    description: "“Soy el SEYO, la historia que sigue viva...”",
+    description: "“Soy el camino que llevó riqueza a La Oroya”",
   },
   {
     title: "Oroya X",
@@ -56,22 +56,22 @@ const slides = [
   {
     title: "Oroya XI",
     src: "/assets/n.b.n.h-carousel/11.png",
-    description: "“Soy un elefante y represento la buena suerte”",
+    description: "“Soy el SEYO, la historia que sigue viva...”",
   },
   {
     title: "Oroya XII",
     src: "/assets/n.b.n.h-carousel/12.jpg",
-    description: "",
+    description: "“Soy un elefante y represento la buena suerte”",
   },
   {
     title: "Oroya XIII",
     src: "/assets/n.b.n.h-carousel/13.JPG",
-    description: "“Soy la plaza y los chicos me visitan cuando están tristes, para sentirse tranquilos”",
+    description: "",
   },
   {
     title: "Oroya XIV",
     src: "/assets/n.b.n.h-carousel/14.JPG",
-    description: "",
+    description: "“Soy la plaza y los chicos me visitan cuando están tristes, para sentirse tranquilos”",
   },
   {
     title: "Oroya XV",
@@ -81,22 +81,22 @@ const slides = [
   {
     title: "Oroya XVI",
     src: "/assets/n.b.n.h-carousel/16.JPG",
-    description: "“Soy la entrada de un lugar que muere poco a poco”",
+    description: "",
   },
   {
     title: "Oroya XVII",
     src: "/assets/n.b.n.h-carousel/17.JPG",
-    description: "“Soy el bosque triste porque me seco día a día”",
+    description: "Soy la entrada de un lugar que muere poco a poco",
   },
   {
     title: "Oroya XVIII",
     src: "/assets/n.b.n.h-carousel/18.JPG",
-    description: "“Fui una casa de aves históricas de La Oroya, hasta que me convertí en una cárcel de la que tuvieron que escapar”",
+    description: "“Soy el bosque triste porque me seco día a día”",
   },
   {
     title: "Oroya XIX",
     src: "/assets/n.b.n.h-carousel/19.JPG",
-    description: "",
+    description: "“Fui una casa de aves históricas de La Oroya, hasta que me convertí en una cárcel de la que tuvieron que escapar”",
   },
   {
     title: "Oroya XX",
@@ -205,8 +205,7 @@ const ExposicionFotografica = () => {
             className="text-lg text-muted-foreground max-w-3xl mx-auto"
             variants={fadeInFrom("up", { distance: 16 })}
           >
-            En esta sección se presentarán las fotografías y textos elaborados durante el proceso de fotovoz, resultado del trabajo
-            reflexivo y creativo de las/os participantes.
+            A través de estas imágenes y relatos, buscamos visibilizar las miradas, experiencias y mensajes de la comunidad.
           </motion.p>
         </motion.div>
 
@@ -218,7 +217,7 @@ const ExposicionFotografica = () => {
           className="text-lg text-muted-foreground max-w-3xl mx-auto mt-16 md:mt-20 text-center"
           variants={fadeInFrom("up", { duration: 0.5, distance: 16 })}
         >
-          A través de estas imágenes y relatos, buscamos visibilizar las miradas, experiencias y mensajes de la comunidad.
+          Natzumi Soe Sotelo Torres • Valentino Aliaga Fernández • Sayuri Pumacarhua Trinidad • Christinn Hesed Coronel Collazos • Britany Patricia Amaro Sanabria • Yennova Celeste Inga Cerrón• Nardo Yared Quinto Huari • Keydens Jaylee Lagos Torres • Abigail Alanya Canto • Daniela Gamarra Prado • Kristen Soto Camac • Astrid Inga Ñaupari
         </motion.p>
       </div>
     </motion.section>

@@ -5,6 +5,7 @@ import ConoceElProyecto from "@/components/ConoceElProyecto";
 import IncidenciaSection from "@/components/IncidenciaSection";
 import Stories from "@/components/Stories";
 import ExposicionFotografica from "@/components/ExposicionFotografica";
+import Collaborators from "@/components/Collaborators";
 import AliadosQueSuman from "@/components/AliadosQueSuman";
 import NuestroEquipo from "@/components/NuestroEquipo";
 import Footer from "@/components/Footer";
@@ -28,6 +29,7 @@ const Index = () => {
         <IncidenciaSection />
         {/* <Stories /> */}
         <ExposicionFotografica />
+        <Collaborators />
         <AliadosQueSuman />
         <NuestroEquipo />
       </motion.main>

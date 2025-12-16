@@ -1,54 +1,63 @@
 import { motion } from "framer-motion";
-import { fadeIn, fadeInFrom, scaleIn, staggerChildren, viewportSettings } from "@/lib/motion";
+import ImageCarousel from "@/components/ImageCarousel";
+import { fadeInFrom, sectionReveal, staggerChildren, viewportSettings } from "@/lib/motion";
 
-const collaborators = [
-  { name: "AMSAC (Activos Mineros S.A.C.)", logo: "🏭" },
-  { name: "Municipalidad Distrital de Santa Rosa de Sacco", logo: "🌹" },
-  { name: "Municipalidad Provincial de Yauli – La Oroya", logo: "⛰️" },
-  { name: "Iglesia evangélica de Santa Rosa de Sacco", logo: "⛪" },
-  { name: "Institución Educativa José Carlos Mariátegui", logo: "🎓" },
+const alexandra1 = "/assets/alexandra.jpg";
+const alexandra2 = "/assets/alexandra2.JPG";
+
+const collaboratorSlides = [
+  {
+    image: alexandra1,
+    caption: "Alexandra Gutiérrez, artista Oroyina",
+  },
+  {
+    image: alexandra2,
+    caption: "Alexandra Gutiérrez, artista Oroyina",
+  },
 ];
 
 const Collaborators = () => {
   return (
     <motion.section
-      id="participa"
-      className="py-20 bg-background"
+      id="colaboraciones"
+      className="py-20 bg-white"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
-      variants={fadeIn()}
+      variants={sectionReveal({ delayChildren: 0.05, staggerChildren: 0.08 })}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-16" variants={staggerChildren(0.08)}>
-          <motion.h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4" variants={fadeInFrom("up", { distance: 18 })}>
-            Aliados que <span className="text-primary">Suman</span>
-          </motion.h2>
-          <motion.p className="text-lg text-muted-foreground max-w-2xl mx-auto" variants={fadeInFrom("up", { distance: 16 })}>
-            Instituciones aliadas que hacen posible esta iniciativa y acompañan el proceso comunitario en La Oroya.
-          </motion.p>
-        </motion.div>
+        <motion.div
+          className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto"
+          variants={staggerChildren({ stagger: 0.08, delayChildren: 0.05 })}
+        >
+          <motion.div
+            className="flex justify-center order-2 md:order-1"
+            variants={fadeInFrom("right", { duration: 0.5, distance: 20 })}
+          >
+            <ImageCarousel
+              slides={collaboratorSlides}
+              className="w-full max-w-sm h-[22rem] md:h-[24rem] rounded-3xl overflow-hidden shadow-[var(--shadow-soft)]"
+            />
+          </motion.div>
 
-        <motion.div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center" variants={staggerChildren(0.08)}>
-          {collaborators.map((collaborator) => (
-            <motion.div
-              key={collaborator.name}
-              className="flex flex-col items-center justify-center p-6 rounded-xl bg-muted/50 transition-all duration-300 group"
-              variants={scaleIn()}
-              whileHover={{ y: -6, scale: 1.02 }}
+          <motion.div
+            className="space-y-6 order-1 md:order-2"
+            variants={staggerChildren({ stagger: 0.08, delayChildren: 0.04 })}
+          >
+            <motion.h2
+              className="text-4xl sm:text-5xl font-bold text-foreground"
+              variants={fadeInFrom("up", { distance: 18 })}
             >
-              <motion.div
-                className="text-6xl mb-3"
-                whileHover={{ rotate: [0, -6, 6, 0] }}
-                transition={{ duration: 0.6 }}
-              >
-                {collaborator.logo}
-              </motion.div>
-              <p className="text-sm text-center text-muted-foreground font-medium">
-                {collaborator.name}
-              </p>
-            </motion.div>
-          ))}
+              Colaboradores <span className="text-primary">locales</span>
+            </motion.h2>
+            <motion.p
+              className="text-lg text-muted-foreground leading-relaxed text-justify"
+              variants={fadeInFrom("up", { distance: 16 })}
+            >
+              Alexandra Gutiérrez (La Oroya, 2002) es estudiante de Pintura con concentración en Cerámica en la Pontificia Universidad Católica del Perú. Colaboradora del proyecto Nuestro Barrio, Nuestra Historia, ha brindado sesiones de curaduría a los estudiantes y participa activamente en el montaje y la exposición fotográfica. También aportó a la restauración del área de la Casa de la Cultura, reforzando su compromiso con la cultura local.
+            </motion.p>
+          </motion.div>
         </motion.div>
       </div>
     </motion.section>
