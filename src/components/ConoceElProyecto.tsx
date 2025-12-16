@@ -16,22 +16,16 @@ const PILLARS = [
       "Elaboramos mapas que muestran cómo se habita La Oroya, destacando las conexiones territorioriales, memoria colectiva y sentido de pertenencia.",
   },
   {
-    icon: "🎭",
-    title: "Teatro comunitario",
+    icon: "🚶",
+    title: "Caminatas comunitarias",
     description:
-      "Reflexionamos sobre las memorias y vínculos a través del cuerpo, el juego de roles y la creación artística como espacios de encuentro y expresión colectiva.",
+      "Recorridos por el barrio con estudiantes y comunidad para compartir historias, fortalecer vínculos intergeneracionales y fomentar sentido de pertenencia.",
   },
   {
     icon: "🕯",
     title: "Mapas del cuerpo",
     description:
       "Metodología sensible para explorar cómo la historia se encarna en el cuerpo, reconociendo la relación entre territorio, cuerpo y emociones.",
-  },
-  {
-    icon: "⏳",
-    title: "Nuestro Tiempo",
-    description:
-      "Actividades con relojes y líneas del tiempo para reflexionar sobre los diversos usos del tiempo y el pasado, presente y futuro de la ciudad.",
   },
 ];
 
@@ -67,7 +61,7 @@ const ConoceElProyecto = () => {
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 justify-items-center"
           variants={staggerChildren({ stagger: 0.08, delayChildren: 0.05 })}
         >
           {PILLARS.map((pillar, index) => (
@@ -78,7 +72,7 @@ const ConoceElProyecto = () => {
                 distance: 18,
               })}
             >
-              <Card className="group hover:shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-2 border-2 h-full">
+              <Card className="group hover:shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-2 border-2 h-full w-60">
                 <CardContent className="p-6 space-y-4 text-center h-full flex flex-col justify-between">
                   <div className="w-16 h-16 mx-auto rounded-full bg-muted flex items-center justify-center text-3xl transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
                     <span role="img" aria-label={pillar.title}>
