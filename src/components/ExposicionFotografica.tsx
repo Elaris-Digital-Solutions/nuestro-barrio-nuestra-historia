@@ -66,7 +66,7 @@ const slides = [
   {
     title: "Oroya XIII",
     src: "/assets/n.b.n.h-carousel/13.JPG",
-    description: "“Soy la plaza y los chicos ma visitan cuando están tristes, para sentirse tranquilos”",
+    description: "“Soy la plaza y los chicos me visitan cuando están tristes, para sentirse tranquilos”",
   },
   {
     title: "Oroya XIV",

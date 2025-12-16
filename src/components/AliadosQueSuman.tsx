@@ -5,7 +5,7 @@ const ALLIES = [
   { name: "Activos Mineros S.A.C. (AMSAC)", logo: "🏭" },
   { name: "Municipalidad Distrital de Santa Rosa de Sacco", logo: "🌹" },
   { name: "Municipalidad Provincial de Yauli", logo: "⛰️" },
-  { name: "Iglesia evangélica de Santa Rosa de Sacco", logo: "⛪" },
+  { name: "Comité Cultural de la Provincia de Yauli - La Oroya", logo: "🏛️" },
   { name: "Institución Educativa José Carlos Mariátegui", logo: "🎓" },
   { name: "Unidad de Gestión Educativa Local (UGEL)", logo: "🏫" },
 ];
