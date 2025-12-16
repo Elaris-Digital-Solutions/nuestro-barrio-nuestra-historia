@@ -22,11 +22,11 @@ const QuienesSomos = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="mb-6 text-lg leading-relaxed" text-justify>
-              <strong><em>“Nuestro Barrio, Nuestra Historia”</em></strong> es un proyecto interdisciplinario que desarrolla <strong>soluciones metodológicas creativas y comunitarias</strong> para aportar a un <strong><em>urban planning</em></strong> <strong>sostenible</strong> en ciudades afectadas por <strong>contaminación ambiental</strong>. Creemos que los <strong>niños, niñas y adolescentes (NNA)</strong> poseen una <strong>mirada única del territorio</strong>, por lo que <strong>su voz es el eje y motor</strong> de nuestros procesos.
+            <p className="mb-6 text-lg leading-relaxed">
+              <strong><em>“Nuestro Barrio, Nuestra Historia”</em></strong> es un proyecto interdisciplinario que desarrolla <strong>metodologías creativas y comunitarias</strong> para aportar a una <strong>planificación urbana sostenible</strong>. Partimos de la convicción de que las <strong>niñas, niños y adolescentes (NNA)</strong> poseen una <em>mirada única del territorio</em>, por lo que <strong>su voz constituye el eje y motor</strong> de nuestros procesos.
             </p>
             <p className="mb-6 text-lg leading-relaxed">
-              Trabajamos desde un enfoque de <strong>memoria</strong>, <strong>ciudadanía ambiental</strong> y <strong>participación intergeneracional</strong>. Aunque los NNA son protagonistas, la presencia de <strong>familias</strong> y <strong>personas adultas de la comunidad</strong> complementa y fortalece la <strong>construcción colectiva de significados</strong>, ampliando la comprensión del <strong>entorno urbano</strong>.
+              El proyecto se trabaja desde un enfoque de <strong>memoria</strong>, <strong>ciudadanía ambiental</strong> y <strong>participación intergeneracional</strong>. Si bien los <strong>NNA</strong> son protagonistas, la participación de las <strong>familias</strong> y de <strong>personas adultas de la comunidad</strong> complementa y fortalece la <strong>construcción colectiva de significados</strong>, ampliando la comprensión del <em>entorno urbano</em>.
             </p>
           </motion.div>
           
@@ -37,7 +37,7 @@ const QuienesSomos = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="mb-6 text-lg leading-relaxed">
-              Nuestro propósito es generar <strong>espacios</strong> donde la comunidad pueda <strong>narrar su historia</strong>, <strong>reconocer sus vínculos con el territorio</strong> y <strong>proponer caminos</strong> para un <strong>futuro más habitable</strong>. Buscamos que estas <strong>memorias</strong> dialoguen con <strong>instituciones y actores locales</strong>, contribuyendo a decisiones que promuevan <strong>ciudades más saludables, funcionales y humanas</strong>.
+              Nuestro propósito es generar <strong>espacios</strong> donde la comunidad pueda <strong>narrar su historia</strong>, <strong>reconocer sus vínculos con el territorio</strong> y <strong>proponer caminos</strong> para un <strong>futuro más habitable</strong>. Buscamos que estas <strong>memorias</strong> dialoguen con <strong>instituciones y actores locales</strong>, contribuyendo a la <strong>toma de decisiones</strong> que promuevan <strong>ciudades más saludables, funcionales y humanas</strong>.
             </p>
           
           </motion.div>
