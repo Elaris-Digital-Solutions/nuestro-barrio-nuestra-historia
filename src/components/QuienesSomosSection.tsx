@@ -11,6 +11,10 @@ const slides = [
     image: "/assets/Nosotros2.jpg",
     caption: "Historias y memorias que siguen latiendo en La Oroya",
   },
+  {
+    image: "/assets/Nosotros3.jpg",
+    caption: "Recorridos y memorias compartidas",
+  },
 ];
 
 const QuienesSomosSection = () => {
