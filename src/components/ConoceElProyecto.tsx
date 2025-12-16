@@ -61,7 +61,7 @@ const ConoceElProyecto = () => {
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 justify-items-center"
+          className="flex flex-wrap justify-center gap-4"
           variants={staggerChildren({ stagger: 0.08, delayChildren: 0.05 })}
         >
           {PILLARS.map((pillar, index) => (
