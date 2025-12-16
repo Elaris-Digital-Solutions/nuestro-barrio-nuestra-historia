@@ -55,7 +55,7 @@ const Collaborators = () => {
               className="text-lg text-muted-foreground leading-relaxed text-justify"
               variants={fadeInFrom("up", { distance: 16 })}
             >
-              Alexandra Gutiérrez (La Oroya, 2002) es estudiante de Pintura con concentración en Cerámica en la Pontificia Universidad Católica del Perú. Colaboradora del proyecto Nuestro Barrio, Nuestra Historia, ha brindado sesiones de curaduría a los estudiantes y participa activamente en el montaje y la exposición fotográfica. También aportó a la restauración del área de la Casa de la Cultura, reforzando su compromiso con la cultura local.
+              Alexandra Gutiérrez (La Oroya, 2002) es estudiante de Pintura con concentración en Cerámica en la Pontificia Universidad Católica del Perú. Colaboradora del proyecto Nuestro Barrio, Nuestra Historia, ha brindado sesiones de curaduría a los estudiantes y participa activamente en el montaje y la exposición fotográfica, reforzando su compromiso con la cultura local.
             </motion.p>
           </motion.div>
         </motion.div>
