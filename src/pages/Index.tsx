@@ -27,7 +27,7 @@ const Index = () => {
         <QuienesSomosSection />
         <ConoceElProyecto />
         <IncidenciaSection />
-        {/* <Stories /> */}
+        <Stories />
         <ExposicionFotografica />
         <Collaborators />
         <AliadosQueSuman />

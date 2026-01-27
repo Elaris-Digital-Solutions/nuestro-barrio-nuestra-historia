@@ -6,7 +6,7 @@ const Footer = () => {
   const navigation = [
     { name: "¿Quiénes Somos?", href: "#quienes-somos" },
     { name: "Conoce el Proyecto", href: "#conoce-el-proyecto" },
-    // { name: "Nuestras Historias", href: "#historias" },
+    { name: "Nuestras Historias", href: "#historias" },
     { name: "Nuestro Equipo", href: "#equipo" },
     { name: "Exposición Fotográfica", href: "#exposicion" },
   ];

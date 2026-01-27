@@ -17,7 +17,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'quienes-somos', 'proyecto', 'exposicion', 'blog', 'recursos'];
+      const sections = ['inicio', 'quienes-somos', 'proyecto', 'exposicion', 'historias', 'recursos'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -55,7 +55,7 @@ const Navbar = () => {
     { id: 'quienes-somos', label: '¿Quiénes somos?' },
     { id: 'proyecto', label: 'Conoce el proyecto' },
     { id: 'exposicion', label: 'Exposición fotográfica' },
-    // { id: 'blog', label: 'Blog' },
+    { id: 'historias', label: 'Blog' },
     { id: 'recursos', label: 'Recursos libres' }
   ];
 
