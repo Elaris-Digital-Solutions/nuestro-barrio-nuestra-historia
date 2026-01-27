@@ -147,23 +147,12 @@ const StoryDetail = () => {
               {story.title}
             </motion.h1>
 
-            {/* Metadata */}
+            {/* Metadata removed as requested */}
             <motion.div
               className="flex items-center gap-4 sm:gap-6 justify-center flex-wrap text-muted-foreground"
               variants={fadeInUp(0.25)}
             >
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span className="text-sm">{story.publishedAt}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span className="text-sm">{readTime}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Eye className="w-4 h-4" />
-                <span className="text-sm">{views} vistas</span>
-              </div>
+              {/* Empty or just remove variants if preferred, keeping empty div for spacing if needed, but better to remove content */}
             </motion.div>
           </motion.div>
         </div>

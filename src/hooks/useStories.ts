@@ -24,12 +24,20 @@ export type Story = {
 const FALLBACK_IMAGE = "/assets/hero-image.jpg";
 const EXCERPT_MAX_LENGTH = 480;
 
-const sanitizeContent = (value: string) =>
-  value
-    .replace(/<[^>]*>/g, " ")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+const sanitizeContent = (value: string) => {
+  if (typeof window === "undefined") {
+    // Server-side fallback (if needed, though this is a client app)
+    return value
+      .replace(/<[^>]*>/g, " ")
+      .replace(/&nbsp;/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(value, "text/html");
+  return doc.body.textContent || "";
+};
 
 const createExcerpt = (content: string) => {
   if (!content) {

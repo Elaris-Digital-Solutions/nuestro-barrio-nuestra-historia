@@ -42,8 +42,6 @@ const Stories = () => {
         return {
           ...story,
           formattedDate,
-          readTime: estimateReadTime(story.content),
-          views: estimateViews(story.content),
         };
       }),
     [stories, dateFormatter]
@@ -77,9 +75,9 @@ const Stories = () => {
       variants={pageTransition}
     >
       <Header />
-      
+
       {/* Header Section */}
-      <motion.header 
+      <motion.header
         className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 mt-20"
         initial="hidden"
         animate="visible"
@@ -88,7 +86,7 @@ const Stories = () => {
         <div className="container mx-auto text-center space-y-6">
           {/* Breadcrumb */}
           <motion.nav className="flex items-center justify-center gap-2 text-sm text-muted-foreground" variants={fadeInUp(0.05)}>
-            <button 
+            <button
               onClick={() => navigate("/")}
               className="hover:text-primary transition-colors"
             >
@@ -97,18 +95,18 @@ const Stories = () => {
             <span>/</span>
             <span className="text-foreground">Historias</span>
           </motion.nav>
-          
-          <motion.h1 
+
+          <motion.h1
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight"
             variants={fadeInUp(0.1)}
           >
             Nuestras <span className="text-primary">Historias</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             variants={fadeInUp(0.2)}
           >
-            Un espacio cálido donde compartimos experiencias, aprendizajes y momentos que nos conectan como comunidad. 
+            Un espacio cálido donde compartimos experiencias, aprendizajes y momentos que nos conectan como comunidad.
             Cada historia es un tesoro que enriquece la memoria colectiva de nuestro barrio.
           </motion.p>
         </div>
@@ -118,7 +116,7 @@ const Stories = () => {
       {/* Search and Filter Section removed as requested */}
 
       {/* Stories Grid */}
-      <motion.main 
+      <motion.main
         className="py-16 px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -189,17 +187,7 @@ const Stories = () => {
                     </div>
                     <CardContent className="space-y-4 p-6">
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="h-4 w-4" />
-                          <span className="capitalize">{story.formattedDate}</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span>{story.readTime} min lectura</span>
-                          <div className="flex items-center gap-1">
-                            <Eye className="h-4 w-4" />
-                            <span>{story.views}</span>
-                          </div>
-                        </div>
+                        {/* Metadata removed as requested */}
                       </div>
                       <h3 className="line-clamp-2 text-xl font-bold text-foreground transition-colors group-hover:text-primary">
                         {story.title}
@@ -246,7 +234,7 @@ const Stories = () => {
       </motion.main>
 
       {/* Call to Action Footer */}
-      <motion.footer 
+      <motion.footer
         className="mt-20 py-16 bg-muted/30 border-t border-border"
         initial="hidden"
         whileInView="visible"
@@ -254,29 +242,29 @@ const Stories = () => {
         variants={fadeIn()}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <motion.h3 
+          <motion.h3
             className="text-2xl font-bold text-foreground"
             variants={fadeInUp(0.1)}
           >
             ¿Tienes una historia para compartir?
           </motion.h3>
-          <motion.p 
+          <motion.p
             className="text-muted-foreground max-w-2xl mx-auto"
             variants={fadeInUp(0.2)}
           >
             Únete a nuestra comunidad de narradores y comparte tus experiencias, recuerdos y momentos especiales que han marcado la vida en nuestro barrio.
           </motion.p>
           <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center" variants={fadeInUp(0.3)}>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="px-8"
               onClick={() => navigate("/compartir-historia")}
             >
               Compartir mi historia
             </Button>
-            <Button 
+            <Button
               variant="outline"
-              size="lg" 
+              size="lg"
               className="px-8"
               onClick={() => navigate("/")}
             >
@@ -285,7 +273,7 @@ const Stories = () => {
           </motion.div>
         </div>
       </motion.footer>
-      
+
       <Footer />
     </motion.div>
   );
