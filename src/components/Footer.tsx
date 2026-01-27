@@ -20,33 +20,36 @@ const Footer = () => {
       variants={fadeIn()}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div className="grid md:grid-cols-3 gap-8 mb-8" variants={staggerChildren(0.08)}>
-          <motion.div className="space-y-4" variants={fadeInUp(0.1)}>
-            <div className="h-auto w-full max-w-[380px] relative flex items-center justify-start">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16 max-w-5xl mx-auto mb-16"
+          variants={staggerChildren(0.08)}
+        >
+          {/* Identity Section - Spans 2 columns (50%) */}
+          <motion.div className="md:col-span-2 space-y-6" variants={fadeInUp(0.1)}>
+            <div className="w-full max-w-[280px]">
               <img
                 src="/assets/CICLOMIN.png"
                 alt="Ciclomin"
                 className="w-full h-auto object-contain"
               />
             </div>
-            <motion.p
-              className="text-primary-foreground/80 text-sm leading-relaxed"
+            <motion.div
+              className="text-primary-foreground/90 text-sm leading-relaxed max-w-md"
               variants={fadeInUp(0.2)}
             >
               <p>Rescatando, preservando y compartiendo las historias que hacen única a nuestra comunidad, con el financiamiento del Fondo VLIR-UOS de Bélgica mediante los proyectos SI (PE2023SIN391): <em>Sustainable Mining Research Network (CicloMin)</em> y SI (PE2025SIN467A101): <em>Improving bioremediation capacities in high Andes</em>.</p>
-
-            </motion.p>
+            </motion.div>
           </motion.div>
 
-          {/* Navigation */}
-          <motion.div variants={fadeInUp(0.15)}>
-            <h3 className="font-semibold text-lg mb-4">Navegación</h3>
-            <motion.ul className="space-y-2" variants={staggerChildren(0.08)}>
+          {/* Navigation - Spans 1 column (25%) */}
+          <motion.div variants={fadeInUp(0.15)} className="md:pl-8">
+            <h3 className="font-heading font-semibold text-lg mb-6 text-primary-foreground">Navegación</h3>
+            <motion.ul className="space-y-3" variants={staggerChildren(0.08)}>
               {navigation.map((item) => (
                 <motion.li key={item.name} variants={fadeInUp(0.1)}>
                   <motion.a
                     href={item.href}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm"
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm inline-block"
                     whileHover={{ x: 4 }}
                   >
                     {item.name}
@@ -56,33 +59,39 @@ const Footer = () => {
             </motion.ul>
           </motion.div>
 
-          {/* Contact */}
+          {/* Contact - Spans 1 column (25%) */}
           <motion.div variants={fadeInUp(0.2)}>
-            <h3 className="font-semibold text-lg mb-4">Contacto</h3>
-            <div className="space-y-3 text-sm text-primary-foreground/80">
+            <h3 className="font-heading font-semibold text-lg mb-6 text-primary-foreground">Contacto</h3>
+            <div className="space-y-4 text-sm text-primary-foreground/80">
               <a
                 href="mailto:daniela.bussalleu@upch.pe"
-                className="flex items-center gap-3 hover:text-primary-foreground transition-colors"
+                className="flex items-center gap-3 hover:text-primary-foreground transition-colors group"
               >
-                <Mail className="w-5 h-5" />
+                <div className="p-2 rounded-full bg-primary-foreground/10 group-hover:bg-primary-foreground/20 transition-colors">
+                  <Mail className="w-4 h-4" />
+                </div>
                 <span>daniela.bussalleu@upch.pe</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/daniela-bussalleu"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 hover:text-primary-foreground transition-colors"
+                className="flex items-center gap-3 hover:text-primary-foreground transition-colors group"
               >
-                <Linkedin className="w-5 h-5" />
+                <div className="p-2 rounded-full bg-primary-foreground/10 group-hover:bg-primary-foreground/20 transition-colors">
+                  <Linkedin className="w-4 h-4" />
+                </div>
                 <span>Daniela Bussalleu</span>
               </a>
               <a
                 href="https://www.instagram.com/daniela.bussalleu?igsh=cXptdDJ5OGZoZmhs"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 hover:text-primary-foreground transition-colors"
+                className="flex items-center gap-3 hover:text-primary-foreground transition-colors group"
               >
-                <Instagram className="w-5 h-5" />
+                <div className="p-2 rounded-full bg-primary-foreground/10 group-hover:bg-primary-foreground/20 transition-colors">
+                  <Instagram className="w-4 h-4" />
+                </div>
                 <span>@daniela.bussalleu</span>
               </a>
             </div>
