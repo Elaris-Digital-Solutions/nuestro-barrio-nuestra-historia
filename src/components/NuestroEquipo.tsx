@@ -99,7 +99,7 @@ const NuestroEquipo = () => {
               >
                 Vania Masalias
               </a>
-              , Lic. y{" "}
+              {" "}y{" "}
               <a
                 href="https://www.linkedin.com/in/kevin-fu-fang-71541496/"
                 target="_blank"
@@ -108,7 +108,6 @@ const NuestroEquipo = () => {
               >
                 Kevin Fu
               </a>
-              , Lic.
             </motion.p>
           </motion.div>
 
