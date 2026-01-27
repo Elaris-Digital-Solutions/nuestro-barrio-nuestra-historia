@@ -98,8 +98,8 @@ const NuestroEquipo = () => {
                 className="underline decoration-1 decoration-muted-foreground/60 underline-offset-2 hover:decoration-muted-foreground hover:text-foreground transition-colors"
               >
                 Vania Masalias
-              </a>
-              {" "}y{" "}
+              </a>{" "}
+              y{" "}
               <a
                 href="https://www.linkedin.com/in/kevin-fu-fang-71541496/"
                 target="_blank"
