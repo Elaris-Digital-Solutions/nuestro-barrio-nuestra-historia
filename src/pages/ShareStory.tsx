@@ -20,6 +20,7 @@ import { motion } from "framer-motion";
 import { fadeIn, fadeInUp, pageTransition } from "@/lib/motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
 
 const storySchema = z.object({
   title: z.string().min(3, "El título debe tener al menos 3 caracteres").max(100, "El título debe tener menos de 100 caracteres"),
@@ -71,21 +72,55 @@ const ShareStory = () => {
   const onFormSubmit = async (data: StoryFormData) => {
     setIsSubmitting(true);
     try {
-      // Simulate image upload to Cloudinary
+      let imageUrl = null;
+
+      // Unload image to Supabase Storage
       if (selectedImage) {
         setIsImageUploading(true);
-        // Here you would upload to Cloudinary/Supabase
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        const fileExt = selectedImage.name.split('.').pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const filePath = `${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('story-images')
+          .upload(filePath, selectedImage);
+
+        if (uploadError) {
+          throw uploadError;
+        }
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('story-images')
+          .getPublicUrl(filePath);
+
+        imageUrl = publicUrl;
         setIsImageUploading(false);
       }
-      
-      // Here you would submit the story data
-      console.log("Story submitted:", { ...data, image: selectedImage });
-      
+
+      // Submit story data to Supabase
+      const slug = data.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+      const { error: insertError } = await supabase
+        .from('stories')
+        .insert([
+          {
+            title: data.title,
+            category: data.category,
+            content: data.content,
+            image: imageUrl,
+            slug: `${slug}-${Date.now()}`, // Ensure unique slug
+            summary: data.content.substring(0, 200) + '...',
+          }
+        ]);
+
+      if (insertError) throw insertError;
+
+      console.log("Story submitted successfully");
+
       // Navigate back to stories page after successful submission
       navigate("/historias");
     } catch (error) {
       console.error("Error submitting story:", error);
+      // You might want to show a toaster error here
     } finally {
       setIsSubmitting(false);
       setIsImageUploading(false);
@@ -107,9 +142,9 @@ const ShareStory = () => {
       variants={pageTransition}
     >
       <Header />
-      
+
       {/* Header */}
-      <motion.header 
+      <motion.header
         className="py-12 px-4 sm:px-6 lg:px-8 bg-muted/30 border-b border-border mt-20"
         initial="hidden"
         animate="visible"
@@ -119,14 +154,14 @@ const ShareStory = () => {
           <div className="space-y-6">
             {/* Breadcrumb */}
             <motion.nav className="flex items-center gap-2 text-sm text-muted-foreground" variants={fadeInUp(0.1)}>
-              <button 
+              <button
                 onClick={() => navigate("/")}
                 className="hover:text-primary transition-colors"
               >
                 Inicio
               </button>
               <span>/</span>
-              <button 
+              <button
                 onClick={() => navigate("/historias")}
                 className="hover:text-primary transition-colors"
               >
@@ -135,7 +170,7 @@ const ShareStory = () => {
               <span>/</span>
               <span className="text-foreground">Compartir Historia</span>
             </motion.nav>
-            
+
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
@@ -146,13 +181,13 @@ const ShareStory = () => {
                 <ArrowLeft className="w-5 h-5" />
               </Button>
               <div>
-                <motion.h1 
+                <motion.h1
                   className="text-3xl sm:text-4xl font-bold text-foreground"
                   variants={fadeInUp(0.1)}
                 >
                   Comparte tu <span className="text-primary">Historia</span>
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="text-muted-foreground mt-2"
                   variants={fadeInUp(0.2)}
                 >
@@ -165,14 +200,14 @@ const ShareStory = () => {
       </motion.header>
 
       {/* Form */}
-      <motion.main 
+      <motion.main
         className="py-12 px-4 sm:px-6 lg:px-8"
         initial="hidden"
         animate="visible"
         variants={fadeIn()}
       >
         <div className="container mx-auto max-w-4xl">
-          <motion.div 
+          <motion.div
             className="bg-card rounded-2xl shadow-[var(--shadow-soft)] p-8"
             variants={fadeInUp(0.2)}
           >
@@ -276,7 +311,7 @@ const ShareStory = () => {
           </motion.div>
         </div>
       </motion.main>
-      
+
       <Footer />
     </motion.div>
   );

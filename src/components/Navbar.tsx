@@ -55,7 +55,7 @@ const Navbar = () => {
     { id: 'quienes-somos', label: '¿Quiénes somos?' },
     { id: 'proyecto', label: 'Conoce el proyecto' },
     { id: 'exposicion', label: 'Exposición fotográfica' },
-    { id: 'historias', label: 'Blog' },
+    { id: 'historias', label: 'Nuestras Historias' },
     { id: 'recursos', label: 'Recursos libres' }
   ];
 

@@ -20,7 +20,7 @@ const Collaborators = () => {
   return (
     <motion.section
       id="colaboraciones"
-      className="py-20 bg-white"
+      className="py-20 bg-[#FBF0ED]"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}

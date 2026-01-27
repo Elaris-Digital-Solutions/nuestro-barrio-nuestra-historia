@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 export type ApiStory = {
   title: string;
@@ -162,10 +163,10 @@ const normalizeStories = (payload: unknown) => {
   const rawArray: ApiStory[] = Array.isArray(payload)
     ? payload
     : Array.isArray((payload as { data?: ApiStory[] })?.data)
-    ? ((payload as { data: ApiStory[] }).data)
-    : Array.isArray((payload as { posts?: ApiStory[] })?.posts)
-    ? ((payload as { posts: ApiStory[] }).posts)
-    : [];
+      ? ((payload as { data: ApiStory[] }).data)
+      : Array.isArray((payload as { posts?: ApiStory[] })?.posts)
+        ? ((payload as { posts: ApiStory[] }).posts)
+        : [];
 
   const mapped = rawArray
     .map(mapApiStoryToStory)
@@ -178,7 +179,7 @@ const normalizeStories = (payload: unknown) => {
 };
 
 export const useStories = () => {
-  const shouldFetch = Boolean(API_ENDPOINT);
+  const shouldFetch = true;
   const [stories, setStories] = useState<Story[]>(SEED_STORIES);
   const [isLoading, setIsLoading] = useState(shouldFetch);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -196,29 +197,42 @@ export const useStories = () => {
     const loadStories = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(API_ENDPOINT, {
-          cache: "no-store",
-          headers: { Accept: "application/json" },
-          signal: controller.signal,
-        });
 
-        if (!response.ok) {
-          throw new Error(`Error ${response.status}`);
+        let query = supabase
+          .from('stories')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        const { data, error } = await query;
+
+        if (error) {
+          throw error;
         }
 
-        const payload = await response.json();
-        const normalized = normalizeStories(payload);
+        const mappedStories = (data || []).map(item => ({
+          title: item.title,
+          summary: item.summary || createExcerpt(item.content),
+          content: item.content,
+          image: item.image || FALLBACK_IMAGE,
+          images: item.image ? [item.image] : [FALLBACK_IMAGE],
+          publishedAt: item.created_at,
+          slug: item.slug,
+          category: item.category || "General",
+        }));
 
-        setStories(normalized);
+        // Use only DB stories
+        const combined = dedupeBySlug(mappedStories);
+        setStories(combined);
         setErrorMessage(null);
       } catch (error) {
-        if (controller.signal.aborted) {
-          return;
-        }
-
+        console.error("Error loading stories:", error);
+        // Fallback to empty or keep existing behavior depending on preference, 
+        // but user asked to remove placeholders, so maybe show error or empty.
+        // For now, I'll keep seed stories ONLY on error so the page isn't broken, 
+        // but on success it will be pure Supabase.
         setStories(SEED_STORIES);
         setErrorMessage(
-          "No pudimos conectar con el blog en este momento. Estamos mostrando las historias destacadas más recientes."
+          "Ocurrió un error al cargar las historias. Mostrando historias de ejemplo."
         );
       } finally {
         if (!controller.signal.aborted) {
@@ -267,7 +281,7 @@ export const estimateViews = (content: string) => {
 
 export const useStoryBySlug = (slug: string | undefined) => {
   const { stories, isLoading, errorMessage } = useStories();
-  
+
   const story = useMemo(() => {
     if (!slug) return null;
     return stories.find((s) => s.slug === slug) ?? null;
