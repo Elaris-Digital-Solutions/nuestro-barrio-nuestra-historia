@@ -25,7 +25,16 @@ import { supabase } from "@/integrations/supabase/client";
 const storySchema = z.object({
   title: z.string().min(3, "El título debe tener al menos 3 caracteres").max(100, "El título debe tener menos de 100 caracteres"),
   category: z.string().min(1, "Selecciona una categoría"),
+  customCategory: z.string().optional(),
   content: z.string().min(50, "La historia debe tener al menos 50 caracteres"),
+}).refine((data) => {
+  if (data.category === "Otra" && (!data.customCategory || data.customCategory.length < 3)) {
+    return false;
+  }
+  return true;
+}, {
+  message: "Escribe una categoría válida (mínimo 3 letras)",
+  path: ["customCategory"],
 });
 
 type StoryFormData = z.infer<typeof storySchema>;
@@ -46,6 +55,10 @@ const ShareStory = () => {
     watch,
   } = useForm<StoryFormData>({
     resolver: zodResolver(storySchema),
+    defaultValues: {
+      category: "",
+      customCategory: "",
+    }
   });
 
   const categoryValue = watch("category");
@@ -73,6 +86,8 @@ const ShareStory = () => {
     setIsSubmitting(true);
     try {
       let imageUrl = null;
+
+      const finalCategory = data.category === "Otra" ? data.customCategory : data.category;
 
       // Unload image to Supabase Storage
       if (selectedImage) {
@@ -104,7 +119,7 @@ const ShareStory = () => {
         .insert([
           {
             title: data.title,
-            category: data.category,
+            category: finalCategory,
             content: data.content,
             image: imageUrl,
             slug: `${slug}-${Date.now()}`, // Ensure unique slug
@@ -235,7 +250,12 @@ const ShareStory = () => {
                 </Label>
                 <Select
                   value={categoryValue}
-                  onValueChange={(value) => setValue("category", value)}
+                  onValueChange={(value) => {
+                    setValue("category", value);
+                    if (value !== "Otra") {
+                      setValue("customCategory", ""); // Clear custom if switching back
+                    }
+                  }}
                 >
                   <SelectTrigger className="w-full h-12">
                     <SelectValue placeholder="Selecciona una categoría" />
@@ -246,12 +266,31 @@ const ShareStory = () => {
                         {category}
                       </SelectItem>
                     ))}
+                    <SelectItem value="Otra">Otra (Escribir nueva)</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.category && (
                   <p className="text-sm text-destructive">{errors.category.message}</p>
                 )}
               </div>
+
+              {/* Custom Category Input (Conditional) */}
+              {categoryValue === "Otra" && (
+                <div className="space-y-2">
+                  <Label htmlFor="customCategory" className="text-base font-medium text-foreground">
+                    Escribe tu categoría
+                  </Label>
+                  <Input
+                    id="customCategory"
+                    {...register("customCategory")}
+                    placeholder="Ej. Deportes, Arte, Recuerdos..."
+                    className="text-lg h-12"
+                  />
+                  {errors.customCategory && (
+                    <p className="text-sm text-destructive">{errors.customCategory.message}</p>
+                  )}
+                </div>
+              )}
 
               {/* Image Upload */}
               <div className="space-y-2">
