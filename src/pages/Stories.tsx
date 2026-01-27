@@ -51,10 +51,15 @@ const Stories = () => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
     return formattedStories.filter((story) => {
+      // If no search query and category is "Todas", show all
+      if (!normalizedQuery && activeCategory === "Todas") {
+        return true;
+      }
+
       const matchesSearch =
         !normalizedQuery ||
         story.title.toLowerCase().includes(normalizedQuery) ||
-        story.summary.toLowerCase().includes(normalizedQuery);
+        (story.summary && story.summary.toLowerCase().includes(normalizedQuery));
 
       const matchesCategory =
         activeCategory === "Todas" || story.category === activeCategory;
@@ -119,8 +124,7 @@ const Stories = () => {
       <motion.main
         className="py-16 px-4 sm:px-6 lg:px-8"
         initial="hidden"
-        whileInView="visible"
-        viewport={viewportSettings}
+        animate="visible"
         variants={fadeIn()}
       >
         <div className="container mx-auto">
@@ -186,9 +190,7 @@ const Stories = () => {
                       </div>
                     </div>
                     <CardContent className="space-y-4 p-6">
-                      <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        {/* Metadata removed as requested */}
-                      </div>
+                      {/* Metadata removed */}
                       <h3 className="line-clamp-2 text-xl font-bold text-foreground transition-colors group-hover:text-primary">
                         {story.title}
                       </h3>

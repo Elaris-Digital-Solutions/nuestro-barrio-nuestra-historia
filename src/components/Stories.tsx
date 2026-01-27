@@ -117,10 +117,6 @@ const Stories = () => {
                     />
                   </div>
                   <CardContent className="flex flex-1 flex-col space-y-3 p-4 sm:p-6">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
-                      <span className="capitalize">{story.formattedDate}</span>
-                    </div>
                     <h3 className="text-xl sm:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
                       {story.title}
                     </h3>

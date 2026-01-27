@@ -206,7 +206,7 @@ const StoryDetail = () => {
               className="text-3xl sm:text-4xl font-bold text-center mb-12"
               variants={fadeInUp(0.1)}
             >
-              Artículos <span className="text-primary">Relacionados</span>
+              Entradas <span className="text-primary">relacionadas</span>
             </motion.h2>
 
             <motion.div
@@ -235,19 +235,8 @@ const StoryDetail = () => {
                       </div>
                     </div>
                     <CardContent className="p-4 sm:p-6 space-y-3">
-                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                        <div className="flex items-center gap-1.5">
-                          <Calendar className="w-3 h-3" />
-                          <span>{relatedStory.date}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <Clock className="w-3 h-3" />
-                          <span>{relatedStory.readTime}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <Eye className="w-3 h-3" />
-                          <span>{relatedStory.views}</span>
-                        </div>
+                      <div className="flex items-center justify-between text-sm text-muted-foreground">
+                        {/* Metadata removed */}
                       </div>
                       <h3 className="text-xl sm:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                         {relatedStory.title}

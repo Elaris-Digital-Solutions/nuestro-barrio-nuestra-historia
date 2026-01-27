@@ -219,7 +219,7 @@ export const useStories = () => {
 
         const mappedStories = (data || []).map(item => ({
           title: item.title,
-          summary: item.summary || createExcerpt(item.content),
+          summary: createExcerpt(item.content), // Always regenerate summary from content to ensure it's clean text
           content: item.content,
           image: item.image || FALLBACK_IMAGE,
           images: item.image ? [item.image] : [FALLBACK_IMAGE],
