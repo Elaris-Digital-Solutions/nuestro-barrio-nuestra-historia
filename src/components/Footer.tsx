@@ -33,7 +33,8 @@ const Footer = () => {
               className="text-primary-foreground/80 text-sm leading-relaxed"
               variants={fadeInUp(0.2)}
             >
-              Rescatando, preservando y compartiendo las historias que hacen única a nuestra comunidad.
+              <p>Rescatando, preservando y compartiendo las historias que hacen única a nuestra comunidad, con el financiamiento del Fondo VLIR-UOS de Bélgica mediante los proyectos SI (PE2023SIN391): <em>Sustainable Mining Research Network (CicloMin)</em> y SI (PE2025SIN467A101): <em>Improving bioremediation capacities in high Andes</em>.</p>
+
             </motion.p>
           </motion.div>
 
