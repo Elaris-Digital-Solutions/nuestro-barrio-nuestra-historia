@@ -217,7 +217,7 @@ const ExposicionFotografica = () => {
           className="text-lg text-muted-foreground max-w-3xl mx-auto mt-16 md:mt-20 text-center"
           variants={fadeInFrom("up", { duration: 0.5, distance: 16 })}
         >
-          Natzumi Soe Sotelo Torres • Valentino Aliaga Fernández • Sayuri Pumacarhua Trinidad • Christinn Hesed Coronel Collazos • Britany Patricia Amaro Sanabria • Yennova Celeste Inga Cerrón• Nardo Yared Quinto Huari • Keydens Jaylee Lagos Torres • Abigail Alanya Canto • Daniela Gamarra Prado • Kristen Soto Camac • Astrid Inga Ñaupari
+          Autores<br />Natzumi Soe Sotelo Torres • Valentino Aliaga Fernández • Sayuri Pumacarhua Trinidad • Christinn Hesed Coronel Collazos • Britany Patricia Amaro Sanabria • Yennova Celeste Inga Cerrón• Nardo Yared Quinto Huari • Keydens Jaylee Lagos Torres • Abigail Alanya Canto • Daniela Gamarra Prado • Kristen Soto Camac • Astrid Inga Ñaupari
         </motion.p>
       </div>
     </motion.section>
