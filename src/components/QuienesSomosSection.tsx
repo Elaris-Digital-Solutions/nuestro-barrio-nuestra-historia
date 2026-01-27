@@ -15,6 +15,10 @@ const slides = [
     image: "/assets/Nosotros3.jpg",
     caption: "Recorridos y memorias compartidas",
   },
+  {
+    image: "/assets/partimos de una premisa clara.jpeg",
+    caption: "Partimos de una premisa clara",
+  },
 ];
 
 const QuienesSomosSection = () => {
@@ -25,7 +29,7 @@ const QuienesSomosSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
-  variants={sectionReveal({ delayChildren: 0.05, staggerChildren: 0.08 })}
+      variants={sectionReveal({ delayChildren: 0.05, staggerChildren: 0.08 })}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
