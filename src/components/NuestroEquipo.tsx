@@ -47,16 +47,68 @@ const NuestroEquipo = () => {
               className="text-lg text-muted-foreground leading-relaxed text-justify"
               variants={fadeInFrom("up", { distance: 16 })}
             >
-              Proyecto liderado por la Lic. Daniela Bussalleu Salcedo (Universidad de Lima), con la asesoría de Maribel Goncálves de
-              Freitas, PhD (Pontificia Universidad Católica del Perú), Raúl Loayza-Muro y Bram Leo Willems, PhD (Universidad Peruana
-              Cayetano Heredia), y la colaboración de Activos Mineros S.A.C.
+              Proyecto liderado por la Lic. {" "}
+              <a
+                href="https://www.linkedin.com/in/daniela-bussalleu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-1 decoration-muted-foreground/60 underline-offset-2 hover:decoration-muted-foreground hover:text-foreground transition-colors"
+              >
+                Daniela Bussalleu Salcedo
+              </a>{" "}
+              (Universidad de Lima), con la asesoría de{" "}
+              <a
+                href="https://facultad-pucp.academia.edu/MaribelGoncalvesdeFreitas"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-1 decoration-muted-foreground/60 underline-offset-2 hover:decoration-muted-foreground hover:text-foreground transition-colors"
+              >
+                Maribel Goncálves de Freitas
+              </a>
+              , PhD (Pontificia Universidad Católica del Perú),{" "}
+              <a
+                href="https://www.linkedin.com/in/raúl-loayza-299b0831/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-1 decoration-muted-foreground/60 underline-offset-2 hover:decoration-muted-foreground hover:text-foreground transition-colors"
+              >
+                Raúl Loayza-Muro
+              </a>{" "}
+              y{" "}
+              <a
+                href="https://www.linkedin.com/in/bram-leo-willems-27536922/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-1 decoration-muted-foreground/60 underline-offset-2 hover:decoration-muted-foreground hover:text-foreground transition-colors"
+              >
+                Bram Leo Willems
+              </a>
+              , PhD (Universidad Peruana Cayetano Heredia), y la colaboración de Activos Mineros S.A.C.
             </motion.p>
             <motion.p
               className="text-lg text-muted-foreground leading-relaxed text-justify"
               variants={fadeInFrom("up", { distance: 16 })}
             >
-              El proyecto cuenta también con la participación de jóvenes voluntarios y estudiantes locales comprometidos con la
-              reconstrucción de la memoria colectiva de La Oroya.
+              El proyecto cuenta también con la participación de jóvenes y estudiantes locales comprometidos con la
+              reconstrucción de la memoria colectiva de La Oroya, así como la contribución de los arquitectos{" "}
+              <a
+                href="https://www.linkedin.com/in/vaniamasalias/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-1 decoration-muted-foreground/60 underline-offset-2 hover:decoration-muted-foreground hover:text-foreground transition-colors"
+              >
+                Vania Masalias
+              </a>
+              , Lic. y{" "}
+              <a
+                href="https://www.linkedin.com/in/kevin-fu-fang-71541496/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-1 decoration-muted-foreground/60 underline-offset-2 hover:decoration-muted-foreground hover:text-foreground transition-colors"
+              >
+                Kevin Fu
+              </a>
+              , Lic.
             </motion.p>
           </motion.div>
 
