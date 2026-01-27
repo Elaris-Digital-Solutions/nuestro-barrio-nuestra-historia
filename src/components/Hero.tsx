@@ -41,9 +41,8 @@ const Hero = () => {
       >
         {/* Imagen base (siempre visible hasta que el video esté listo) */}
         <picture
-          className={`absolute inset-0 transition-opacity duration-700 ease-out ${
-            isVideoReady ? "opacity-0" : "opacity-100"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-700 ease-out ${isVideoReady ? "opacity-0" : "opacity-100"
+            }`}
         >
           <source srcSet={heroPosterWebp} type="image/webp" />
           <img
@@ -57,9 +56,8 @@ const Hero = () => {
 
         {/* Video — aparece suavemente cuando carga */}
         <video
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
-            isVideoReady ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${isVideoReady ? "opacity-100" : "opacity-0"
+            }`}
           autoPlay
           loop
           muted
@@ -72,7 +70,7 @@ const Hero = () => {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-  </div>
+      </div>
 
       {/* Contenido principal */}
       <motion.div
@@ -101,14 +99,19 @@ const Hero = () => {
           variants={staggerChildren({ stagger: 0.08, delayChildren: 0.04 })}
         >
           <motion.div variants={scaleIn(0)}>
-            <Button
-              variant="hero"
-              size="lg"
-              className="text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 text-white"
-              onClick={() => handleScrollTo("#conoce-el-proyecto")}
+            <a
+              href="https://drive.google.com/file/d/1r_riyBFeMp0X4gaGqyfPxurQ-MkT2GLm/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Conoce el Proyecto
-            </Button>
+              <Button
+                variant="hero"
+                size="lg"
+                className="text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 text-white"
+              >
+                Nuestra Revista
+              </Button>
+            </a>
           </motion.div>
           <motion.div variants={scaleIn(0)}>
             <Button
