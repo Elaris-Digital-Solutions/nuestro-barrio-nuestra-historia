@@ -8,6 +8,7 @@ import BlogContent from "@/components/BlogContent";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeIn, fadeInUp, pageTransition, staggerChildren } from "@/lib/motion";
+import MediaEmbed from "@/components/MediaEmbed";
 import { useStoryBySlug, useStories, estimateReadTime, estimateViews } from "@/hooks/useStories";
 
 const StoryDetail = () => {
@@ -176,6 +177,13 @@ const StoryDetail = () => {
             variants={staggerChildren(0.08)}
           >
             <BlogContent content={story.content} images={story.images} />
+
+            {story.media_url && (
+              <div className="pt-8 border-t">
+                <h3 className="text-xl font-semibold mb-6 text-foreground">Contenido Multimedia Adicional</h3>
+                <MediaEmbed url={story.media_url} />
+              </div>
+            )}
           </motion.div>
 
           {/* Back Button */}

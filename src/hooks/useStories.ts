@@ -19,6 +19,7 @@ export type Story = {
   publishedAt: string;
   slug: string;
   category: string;
+  media_url?: string | null;
 };
 
 const FALLBACK_IMAGE = "/assets/hero-image.jpg";
@@ -227,6 +228,7 @@ export const useStories = () => {
           publishedAt: item.created_at,
           slug: item.slug,
           category: item.category || "General",
+          media_url: item.media_url,
         }));
 
         // Use only DB stories

@@ -25,10 +25,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { ArrowLeft, CheckCircle, XCircle, EyeOff, Save, Loader2, Calendar, Edit2 } from "lucide-react";
+import { ArrowLeft, CheckCircle, XCircle, EyeOff, Save, Loader2, Calendar, Edit2, Link as LinkIcon } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
+import MediaEmbed from "@/components/MediaEmbed";
+import RichTextEditor from "@/components/RichTextEditor";
 
 interface StoryDetail {
     id: string;
@@ -40,6 +42,7 @@ interface StoryDetail {
     category: string;
     image: string | null;
     summary: string | null;
+    media_url: string | null;
 }
 
 const AdminStoryDetail = () => {
@@ -105,6 +108,8 @@ const AdminStoryDetail = () => {
                     summary: editedStory.summary,
                     content: editedStory.content,
                     category: editedStory.category,
+                    image: editedStory.image,
+                    media_url: editedStory.media_url,
                 })
                 .eq("id", story.id);
 
@@ -132,7 +137,7 @@ const AdminStoryDetail = () => {
     if (!story) return null;
 
     return (
-        <div className="space-y-6 max-w-4xl mx-auto animate-fade-in">
+        <div className="space-y-6 max-w-4xl mx-auto animate-fade-in pb-12">
             <div className="flex items-center gap-4">
                 <Button variant="ghost" size="icon" onClick={() => navigate("/admin/stories")}>
                     <ArrowLeft className="h-5 w-5" />
@@ -192,41 +197,62 @@ const AdminStoryDetail = () => {
                                         onChange={(e) => setEditedStory({ ...editedStory, title: e.target.value })}
                                     />
                                 ) : (
-                                    <p className="text-lg font-medium">{story.title}</p>
+                                    <h2 className="text-3xl font-bold text-gray-900">{story.title}</h2>
                                 )}
                             </div>
 
-                            <div className="space-y-2">
-                                <Label>Resumen</Label>
-                                {isEditing ? (
-                                    <Textarea
-                                        value={editedStory.summary || ''}
-                                        onChange={(e) => setEditedStory({ ...editedStory, summary: e.target.value })}
-                                        className="min-h-[100px]"
-                                    />
-                                ) : (
-                                    <p className="text-gray-600 italic border-l-4 border-gray-200 pl-4 py-1">
-                                        {story.summary || "Sin resumen"}
-                                    </p>
-                                )}
-                            </div>
+                            {/* Resumen section removed as per user request */}
 
                             <div className="space-y-2">
                                 <Label>Cuerpo de la historia</Label>
                                 {isEditing ? (
-                                    <Textarea
+                                    <RichTextEditor
                                         value={editedStory.content || ''}
-                                        onChange={(e) => setEditedStory({ ...editedStory, content: e.target.value })}
-                                        className="min-h-[300px] font-mono text-sm"
+                                        onChange={(value) => setEditedStory({ ...editedStory, content: value })}
                                     />
                                 ) : (
-                                    <div className="prose max-w-none bg-gray-50 p-4 rounded-lg text-gray-800 whitespace-pre-wrap">
-                                        {story.content}
-                                    </div>
+                                    <div
+                                        className="prose max-w-none text-gray-800"
+                                        dangerouslySetInnerHTML={{ __html: story.content }}
+                                    />
                                 )}
                             </div>
                         </CardContent>
                     </Card>
+
+                    {/* Media Embed Preview */}
+                    {(story.media_url || isEditing) && (
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Multimedia Adicional</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                {isEditing ? (
+                                    <div className="space-y-3">
+                                        <Label>Enlace Externo (YouTube/Vimeo/Imagen)</Label>
+                                        <div className="flex gap-2">
+                                            <LinkIcon className="h-4 w-4 text-muted-foreground mt-3" />
+                                            <Input
+                                                value={editedStory.media_url || ''}
+                                                onChange={(e) => setEditedStory({ ...editedStory, media_url: e.target.value })}
+                                                placeholder="https://youtube.com/..."
+                                            />
+                                        </div>
+                                    </div>
+                                ) : null}
+
+                                <div className={isEditing ? "mt-4" : ""}>
+                                    {(editedStory.media_url || story.media_url) ? (
+                                        <MediaEmbed
+                                            url={(isEditing ? editedStory.media_url : story.media_url) || ""}
+                                        />
+                                    ) : (
+                                        <p className="text-muted-foreground text-sm italic">Sin multimedia adicional.</p>
+                                    )}
+                                </div>
+                            </CardContent>
+                        </Card>
+                    )}
                 </div>
 
                 {/* Sidebar Column */}
@@ -292,7 +318,7 @@ const AdminStoryDetail = () => {
                     {/* Media Card */}
                     <Card>
                         <CardHeader>
-                            <CardTitle>Multimedia</CardTitle>
+                            <CardTitle>Portada</CardTitle>
                         </CardHeader>
                         <CardContent>
                             {story.image ? (
@@ -301,12 +327,12 @@ const AdminStoryDetail = () => {
                                 </div>
                             ) : (
                                 <div className="h-32 bg-gray-100 rounded-md flex items-center justify-center text-gray-400 text-sm">
-                                    Sin imagen
+                                    Sin imagen vertical
                                 </div>
                             )}
                             {isEditing && (
                                 <div className="mt-4">
-                                    <Label>URL de Imagen</Label>
+                                    <Label>URL de Imagen Portada</Label>
                                     <Input
                                         value={editedStory.image || ''}
                                         onChange={(e) => setEditedStory({ ...editedStory, image: e.target.value })}
