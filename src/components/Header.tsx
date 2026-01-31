@@ -176,22 +176,25 @@ const Header = () => {
     }, delay);
   };
 
+  // Handle scroll on mount or when hash changes
+  useEffect(() => {
+    if (location.pathname === "/" && location.hash) {
+      // Small delay to ensure content is rendered
+      scheduleScrollAttempt(location.hash, 100);
+    }
+  }, [location.pathname, location.hash]);
+
   const handleNavigation = (hash: string) => {
     setIsMenuOpen(false);
 
     if (location.pathname !== "/") {
-      navigate("/");
-      scheduleScrollAttempt(hash, 250);
+      // Navigate to home with hash - this will trigger the useEffect above after mount
+      navigate("/" + hash);
       return;
     }
 
-    // Execute scroll immediately
-    setTimeout(() => {
-      const didScroll = scrollToHash(hash);
-      if (!didScroll) {
-        scheduleScrollAttempt(hash, 100);
-      }
-    }, 50);
+    // On same page, smooth scroll directly
+    scrollToHash(hash);
   };
 
   const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, hash: string) => {

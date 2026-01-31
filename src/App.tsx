@@ -10,6 +10,12 @@ import Stories from "./pages/Stories";
 import ShareStory from "./pages/ShareStory";
 import StoryDetail from "./pages/StoryDetail";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/admin/Login";
+import Dashboard from "./pages/admin/Dashboard";
+import AdminStoriesList from "./pages/admin/AdminStoriesList";
+import AdminStoryDetail from "./pages/admin/AdminStoryDetail";
+import AdminLayout from "./layouts/AdminLayout";
+import AdminGuard from "./components/AdminGuard";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +34,20 @@ const AnimatedRoutes = () => {
         <Route path="/historias/:id" element={<StoryDetail />} />
         <Route path="/compartir-historia" element={<ShareStory />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="/admin/login" element={<Login />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminGuard>
+              <AdminLayout />
+            </AdminGuard>
+          }
+        >
+          <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="stories" element={<AdminStoriesList />} />
+          <Route path="stories/:slug" element={<AdminStoryDetail />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

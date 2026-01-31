@@ -209,6 +209,7 @@ export const useStories = () => {
         let query = supabase
           .from('stories')
           .select('*')
+          .eq('status', 'approved')
           .order('created_at', { ascending: false });
 
         const { data, error } = await query;
